@@ -1,0 +1,52 @@
+section {
+  position: relative;
+  z-index: 20;
+  background: var(--blk);
+  padding: 8rem 3.2rem;
+  border-top: 1px solid var(--c05);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── S1: THE SERIES ────────────── */
+.s-series { text-align: center; max-width: 900px; margin: 0 auto; padding: 10rem 3.2rem; border-top: none; }
+.s-series h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 7vw;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  margin-bottom: 3rem;
+  color: var(--cream);
+}
+.s-series p {
+  font-family: "Barlow", sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--c80);
+  margin-bottom: 1.5rem;
+}
+.s-series blockquote {
+  font-family: "Barlow", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.3;
+  color: var(--lime);
+  margin-top: 5rem;
+  padding: 0 2rem;
+}
+
+@media(max-width:900px){
+  .s-series h2 { font-size: 12vw; }
+}

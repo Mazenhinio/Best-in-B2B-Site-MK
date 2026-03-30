@@ -1,0 +1,188 @@
+/* ── HERO ────────────────────── */
+.hero {
+  position: relative; height: 100vh; overflow: hidden;
+  background: var(--blk);
+}
+
+/* ── DEPTH LAYERS ────────────── */
+.dl { position: absolute; inset: 0; pointer-events: none; will-change: transform; }
+.dl-far { z-index: 2; }
+.dl-mic { z-index: 3; pointer-events: none; }
+.dl-near { z-index: 4; }
+.dl-ui { z-index: 10; pointer-events: auto; }
+
+/* ── DISPLAY WORDS ───────────── */
+.dw {
+  position: absolute;
+  font-family: "Bebas Neue", sans-serif;
+  line-height: .88; white-space: nowrap;
+  user-select: none; opacity: 0; color: var(--cream);
+  will-change: transform;
+}
+
+/* FAR LAYER — behind mic */
+.w-leaders { font-size: 21vw; left: 50%; top: 22%; transform: translateX(-50%); }
+.w-dallas { font-size: 15vw; left: 32%; top: 56%; }
+
+/* NEAR LAYER — in front of mic */
+.w-the { font-size: 17vw; left: .5%; top: 5%; }
+.w-b2b { font-size: 17vw; right: .5%; top: 1%; }
+.w-shaping { font-size: 8.2vw; left: 3%; top: 51%; }
+.w-being { font-size: 6.5vw; right: 3%; top: 62%; }
+.w-doc {
+  font-size: 12.5vw;
+  left: 50%; bottom: 7%;
+  transform: translateX(-50%);
+  color: var(--lime);
+}
+
+/* ── MIC ─────────────────────── */
+.mic-wrap {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -52%);
+  width: 68vh; height: 68vh;
+  opacity: 0;
+  animation: micIn 1.6s cubic-bezier(.16,1,.3,1) forwards .4s;
+}
+
+.mic-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: screen;
+  filter: brightness(1.08) contrast(1.05);
+}
+
+@keyframes micIn {
+  from { opacity: 0; transform: translate(-50%, -44%); }
+  to { opacity: 1; transform: translate(-50%, -52%); }
+}
+
+/* ── STATUS GROUP ────────────── */
+.hero-status-group {
+  position: absolute; top: 6rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  z-index: 11;
+  text-align: center;
+}
+
+/* ── EYEBROW ─────────────────── */
+.eyebrow {
+  font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--lime); white-space: nowrap;
+  opacity: 0; animation: ebIn 1.8s cubic-bezier(.16,1,.3,1) forwards .4s;
+}
+
+@keyframes ebIn {
+  from { opacity: 0; letter-spacing: .1em; }
+  to { opacity: 1; letter-spacing: .35em; }
+}
+
+/* ── REC ─────────────────────── */
+.rec {
+  position: absolute; top: 5.6rem; right: 3.2rem; z-index: 11;
+  display: flex; align-items: center; gap: .4rem;
+  font-size: .42rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--lime);
+  opacity: 0; animation: fi .8s ease forwards 2s;
+}
+
+.recdot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--lime);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+/* ── SEAT UI ─────────────────── */
+.seat-ui {
+  opacity: 0; animation: fi .8s ease forwards 2.1s;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+.seat-num {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.2rem; letter-spacing: .08em; color: var(--cream); line-height: 1;
+}
+
+.seat-lbl {
+  font-size: .38rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--c50); margin-top: .1rem;
+}
+
+.seat-dots { display: flex; gap: 5px; margin-top: .4rem; }
+.sd { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--c25); }
+.sd.on { background: var(--lime); border-color: var(--lime); box-shadow: 0 0 8px rgba(212,255,0,.4); }
+.sd.pnd { background: rgba(212,255,0,.12); border-color: rgba(212,255,0,.35); }
+
+/* ── BOTTOM FOOT ─────────────── */
+.hero-foot {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 11;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 0 3.2rem 2.6rem;
+  opacity: 0; animation: ri .9s ease forwards 2s;
+}
+
+.hero-sub {
+  font-family: "Barlow", sans-serif; font-weight: 300;
+  font-size: clamp(.8rem, .88vw, .95rem);
+  line-height: 1.84; color: var(--c80); max-width: 370px;
+}
+
+.hero-cta {
+  text-decoration: none; color: var(--blk);
+  background: var(--lime);
+  padding: 1.2rem 2.8rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 1rem;
+  position: relative;
+  transition: all 0.4s cubic-bezier(.16,1,.3,1);
+  box-shadow: 0 0 20px rgba(212, 255, 0, 0.15);
+}
+
+.hero-cta:hover { 
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(212, 255, 0, 0.3);
+  background: var(--cream);
+}
+
+.arr { display: inline-block; transition: transform .45s cubic-bezier(.16,1,.3,1); }
+.hero-cta:hover .arr { transform: translateX(8px); }
+
+/* Bottom vignette */
+.hero-vign {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 30%;
+  background: linear-gradient(to bottom, transparent, var(--blk));
+  z-index: 9; pointer-events: none;
+}
+
+/* Top vignette */
+.hero-vign-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 25%;
+  background: linear-gradient(to top, transparent, rgba(5,4,10,.6));
+  z-index: 9; pointer-events: none;
+}
+
+/* ── KEYFRAMES ───────────────── */
+@keyframes fi { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ri { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .12; transform: scale(.45); } }
+
+/* ── RESPONSIVE ──────────────── */
+@media(max-width:900px){
+  .seat-ui { display: none; }
+  .w-the { font-size: 24vw; } .w-b2b { font-size: 24vw; }
+  .w-leaders { font-size: 28vw; } .w-dallas { font-size: 20vw; left: 28%; }
+  .w-shaping { font-size: 12vw; left: 2%; } .w-being { font-size: 10vw; }
+  .w-doc { font-size: 16vw; }
+  .mic-wrap { width: 82vw; height: 82vw; }
+  .hero-foot { flex-direction: column; align-items: flex-start; gap: 1.2rem; padding: 0 1.6rem 2rem; }
+}
+
+@media(max-width:600px){
+  nav { padding: 1.1rem 1.2rem; }
+  .nright { display: none; }
+  .eyebrow { font-size: .38rem; top: 5.2rem; }
+  .mic-wrap { width: 92vw; height: 92vw; }
+}

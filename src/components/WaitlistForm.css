@@ -1,0 +1,28 @@
+/* ── S5: WAITLIST ────────────── */
+.s-waitlist { padding: 10rem 3.2rem; max-width: 800px; margin: 0 auto; border-top: 1px solid var(--c10); }
+.wl-header { font-family: "DM Mono", monospace; font-size: 0.9rem; letter-spacing: 0.25em; color: var(--lime); margin-bottom: 2rem; text-transform: uppercase; }
+.wl-sub { font-family: "Barlow", sans-serif; font-weight: 300; font-size: 1.1rem; line-height: 1.7; color: var(--c80); margin-bottom: 4rem; }
+
+.wl-protocol { display: flex; flex-direction: column; gap: 2rem; }
+.wl-field { display: none; opacity: 0; transform: translateY(10px); transition: all 0.6s cubic-bezier(.16,1,.3,1); }
+.wl-field.active { display: block; opacity: 1; transform: translateY(0); }
+
+.wl-field label { display: flex; justify-content: space-between; font-family: "DM Mono", monospace; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--c50); text-transform: uppercase; margin-bottom: 0.5rem; }
+.wl-field label span { color: var(--lime); opacity: 0.5; }
+
+.wl-field input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--c25); color: var(--cream); font-family: "Barlow", sans-serif; font-size: 2rem; padding: 0.5rem 0; outline: none; transition: border-color 0.3s; }
+.wl-field input:focus { border-color: var(--lime); }
+.wl-field input:disabled { color: var(--c50); border-color: transparent; }
+
+.wl-submit { display: none; opacity: 0; margin-top: 2rem; }
+.wl-submit.active { display: block; opacity: 1; animation: fi 1s ease forwards 0.3s; }
+
+.wl-submit button { background: none; border: none; color: var(--cream); font-family: "DM Mono", monospace; font-size: 1rem; letter-spacing: 0.22em; padding: 1rem 0; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; transition: color 0.3s; text-transform: uppercase; }
+.wl-submit button:hover { color: var(--lime); }
+.wl-submit button .arr { transition: transform 0.45s cubic-bezier(.16,1,.3,1); }
+.wl-submit button:hover .arr { transform: translateX(8px); }
+
+@media(max-width:900px){
+  .s-waitlist { padding: 5rem 1.6rem; }
+  .wl-field input { font-size: 1.5rem; }
+}

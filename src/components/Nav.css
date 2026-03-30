@@ -1,0 +1,25 @@
+/* ── NAV ─────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 80;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.8rem 3.2rem;
+  background: linear-gradient(to bottom, rgba(5,4,10,.85) 0%, transparent 100%);
+  opacity: 0; animation: fi 1s ease forwards .15s;
+}
+
+.nlogo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.35rem; letter-spacing: .14em; color: var(--cream);
+}
+
+.nlogo em { color: var(--lime); font-style: normal; }
+
+.nright {
+  display: flex; align-items: center; gap: .55rem;
+  font-size: .45rem; letter-spacing: .2em; text-transform: uppercase; color: var(--c50);
+}
+
+.npulse {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--lime);
+  animation: pulse 2.6s ease-in-out infinite;
+}

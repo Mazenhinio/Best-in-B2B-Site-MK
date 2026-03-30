@@ -1,0 +1,61 @@
+/* ── VIDEO LOADER ───────────── */
+.vl-screen {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--blk); overflow: hidden;
+  transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.vl-screen.fade-out {
+  opacity: 0; transform: translateY(-30px); pointer-events: none;
+}
+
+.vl-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1; filter: contrast(1.1); opacity: 0.55;
+}
+
+.vl-overlay {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: radial-gradient(circle at center, rgba(5,4,10,0.2) 0%, var(--blk) 100%);
+}
+
+.vl-content {
+  position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 3rem;
+}
+
+.vl-brand {
+  font-family: "Bebas Neue", sans-serif; font-size: 5rem; letter-spacing: 0.15em; color: var(--cream);
+  animation: vlDrop 2s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.vl-enter-btn {
+  background: none; border: 1px solid var(--lime); padding: 1rem 3rem;
+  color: var(--lime); font-family: "Bebas Neue", sans-serif; font-size: 2.2rem; letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; display: flex; align-items: center; gap: 0.8rem;
+  transition: all 0.4s; animation: vlFi 1s ease forwards;
+}
+
+.vl-enter-btn:hover {
+  background: var(--lime); color: var(--blk);
+}
+
+.vl-enter-btn:hover .arr {
+  transform: translateX(6px);
+}
+
+.arr { transition: transform 0.4s; }
+
+@keyframes vlDrop {
+  from { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes vlFi {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media(max-width:900px) {
+  .vl-brand { font-size: 3rem; }
+}

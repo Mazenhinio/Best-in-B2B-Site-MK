@@ -1,0 +1,18 @@
+/* ── S4: CRITERIA ────────────── */
+.s-criteria { padding: 10rem 3.2rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--c10); }
+.cr-top { text-align: center; font-family: "DM Mono", monospace; font-size: 0.9rem; letter-spacing: 0.25em; color: var(--lime); margin-bottom: 5rem; text-transform: uppercase; }
+.cr-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2rem; align-items: start; }
+.cr-card { border-top: 2px solid var(--c25); padding-top: 1.5rem; transition: border-color 0.4s; }
+.cr-card:hover { border-color: var(--lime); }
+.cr-card.mt { margin-top: 3rem; }
+.cr-card h4 { font-family: "Bebas Neue", sans-serif; font-size: 2rem; color: var(--cream); margin-bottom: 1rem; letter-spacing: 0.05em; }
+.cr-card p { font-family: "Barlow", sans-serif; font-weight: 300; font-size: 0.95rem; line-height: 1.6; color: var(--c80); }
+
+@media(max-width:900px){
+  .s-criteria { padding: 5rem 1.6rem; }
+  .cr-grid { grid-template-columns: 1fr 1fr; gap: 4rem 2rem; }
+  .cr-card.mt { margin-top: 0; }
+}
+@media(max-width:600px){
+  .cr-grid { grid-template-columns: 1fr; }
+}
