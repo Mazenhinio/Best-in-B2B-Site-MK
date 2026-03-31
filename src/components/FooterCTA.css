@@ -19,5 +19,5 @@
   .s-end { padding: 8rem 1.6rem 3rem; }
   .cta-head { font-size: 14vw; }
   .foot-wrap { flex-direction: column; gap: 1.5rem; text-align: center; }
-  .foot-links { gap: 1rem; }
+  .foot-links { flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; line-height: 1.6; }
 }

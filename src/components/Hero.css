@@ -238,11 +238,11 @@
   /* Carefully reposition words so they don’t pile on each other */
   .w-the     { font-size: 14vw; left: 4%; top: 8%; }
   .w-b2b     { font-size: 26vw; left: 22%; top: 5%; }
-  .w-leaders { font-size: 14vw; right: 3%; top: 18%; }
+  .w-leaders { font-size: 11vw; right: 4%; top: 18%; }
 
   .w-shaping { font-size: 18vw; left: 4%; top: 36%; transform: rotate(-2deg); }
-  .w-dallas  { font-size: 22vw; left: 50%; top: 48%; transform: translateX(-50%); }
-  .w-are     { font-size: 11vw; right: 3%; top: 60%; }
+  .w-dallas  { font-size: 18vw; left: 50%; top: 48%; transform: translateX(-50%); }
+  .w-are     { font-size: 10vw; right: 4%; top: 60%; }
   .w-being   { font-size: 14vw; left: 5%; top: 68%; }
   .w-doc     { font-size: 15vw; bottom: 18%; }
 

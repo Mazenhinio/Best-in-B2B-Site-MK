@@ -167,4 +167,9 @@ Final call-to-action with brand mark.
 | 11:00 | Fixed hero word opacity bug — JavaScript `el.style.opacity` inline sequence was overriding CSS; corrected values in `seq` array in `Hero.jsx` |
 | 11:05 | Added `margin-bottom: 3.5rem` to MarketContext subheadline for spacing above stat pillars |
 | 11:06 | Mobile optimisation pass — added comprehensive `900px` and `600px` breakpoints for Hero, TheSeries, and MarketContext |
+| 14:15 | Redesigned "What This Involves" section with a cinematic broadcast aesthetic: sticky header, scroll-triggered active states, and viewfinder-style UI elements |
+| 14:35 | Reduced top padding and adjusted sticky position of "What This Involves" section for better header visibility |
+| 14:40 | Comprehensive mobile optimization: Fixed horizontal scroll by capping Hero word sizes, added global overflow-x security, and enabled footer link wrapping |
+| 15:35 | Added "Video Showcase" section featuring 6 simultaneous playing 9:16 vertical videos with a broadcast control-room aesthetic |
+| 15:55 | Optimized Video Showcase for performance: Integrated WebM sources (achieving ~90% file size reduction) with MP4 fallbacks for smoother multi-video playback |
 | 13:08 | Created this `CHANGELOG.md` file — all future changes must be documented here |

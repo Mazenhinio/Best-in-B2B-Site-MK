@@ -12,6 +12,7 @@ import FAQ from './components/FAQ';
 import FooterCTA from './components/FooterCTA';
 import VideoLoader from './components/VideoLoader';
 import Marquee from './components/Marquee';
+import VideoShowcase from './components/VideoShowcase';
 
 function App() {
   const [hasEntered, setHasEntered] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <TheSeries />
           <MarketContext />
           <TheFormat />
+          <VideoShowcase />
           <Criteria />
           <WaitlistForm />
           <FAQ />
