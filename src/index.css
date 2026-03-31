@@ -11,19 +11,25 @@
   --c05: rgba(237, 232, 222, 0.05);
 }
 
-html, body {
+html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  position: relative;
+  overflow-y: auto;
+  background: var(--blk);
   width: 100%;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background: var(--blk);
   color: var(--cream);
   font-family: "DM Mono", monospace;
   cursor: none;
+  width: 100%;
+  position: relative;
+  overflow: visible; /* Ensure body doesn't trigger its own scrollbar */
 }
 
 /* ── CURSOR ──────────────────── */

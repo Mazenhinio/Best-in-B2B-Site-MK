@@ -4,25 +4,45 @@ import './TheSeries.css';
 const TheSeries = () => {
   const sectionRef = useRef(null);
   const elementsRef = useRef([]);
+  const track1Ref = useRef(null);
+  const track2Ref = useRef(null);
 
   useEffect(() => {
-    const raf = requestAnimationFrame(() => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -5% 0px', threshold: 0.05 });
-
-      const els = elementsRef.current;
-      els.forEach(el => {
-        if (el) observer.observe(el);
+    // 1. Reveal Animation (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
       });
+    }, { rootMargin: '0px 0px -5% 0px', threshold: 0.05 });
+
+    elementsRef.current.forEach(el => {
+      if (el) observer.observe(el);
     });
 
-    return () => cancelAnimationFrame(raf);
+    // 2. Interactive Scrolling Film Strips
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrollProgress = Math.min(Math.max((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 0), 1);
+      
+      // Calculate travel distance (-30% to -70% range around the 50% midpoint to ensure seamlessness)
+      const move1 = -65 + (scrollProgress * 30); // Slides Left to Right
+      const move2 = -35 - (scrollProgress * 30); // Slides Right to Left
+      
+      if (track1Ref.current) track1Ref.current.style.transform = `translateX(${move1}%)`;
+      if (track2Ref.current) track2Ref.current.style.transform = `translateX(${move2}%)`;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const addToRefs = (el) => {
@@ -33,17 +53,17 @@ const TheSeries = () => {
 
   return (
     <section ref={sectionRef} className="s-series">
-      {/* Film Strip Layer for Crime Scene zigzags */}
+      {/* Film Strip Layer — now interactive scroll driven */}
       <div className="film-layer">
         <div className="fs-wrap fs-wrap-1">
-          <div className="fs-inner fs-1">
+          <div className="fs-inner" ref={track1Ref}>
             {[...Array(8)].map((_, i) => (
               <img key={i} src="/FILM_STRIP-removebg-preview.png" className="fs-img" alt="" />
             ))}
           </div>
         </div>
         <div className="fs-wrap fs-wrap-2">
-          <div className="fs-inner fs-2">
+          <div className="fs-inner" ref={track2Ref}>
             {[...Array(8)].map((_, i) => (
               <img key={i} src="/FILM_STRIP-removebg-preview.png" className="fs-img" alt="" />
             ))}

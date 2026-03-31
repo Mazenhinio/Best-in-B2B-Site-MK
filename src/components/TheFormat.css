@@ -1,20 +1,20 @@
 /* ── S3: THE FORMAT ──────────── */
 .s-format { 
-  padding: 6rem 2rem 12rem 2rem; 
+  padding: 10rem 2rem; 
   max-width: 1400px; 
   margin: 0 auto; 
   border-top: 1px solid var(--c05);
 }
 
-.sfo-container {
+.sfo-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1.1fr;
   gap: 8rem;
   align-items: start;
 }
 
-/* Sticky Header */
-.sfo-header {
+/* Left Side: Editorial Content */
+.sfo-left {
   position: sticky;
   top: 8rem;
 }
@@ -33,58 +33,50 @@
 
 .sfo-label::before {
   content: "";
-  display: block;
-  width: 30px;
-  height: 1px;
-  background: var(--lime);
+  display: block; width: 30px; height: 1px; background: var(--lime);
 }
 
 .sfo-headline {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 5.5rem;
+  font-size: 5rem;
   line-height: 0.95;
   color: var(--cream);
   margin-bottom: 3rem;
   text-transform: uppercase;
 }
 
-.sfo-intro-text p {
+.sfo-body-copy p {
   font-family: "Barlow", sans-serif;
   font-size: 1.15rem;
   line-height: 1.7;
-  color: var(--c50);
+  color: var(--c80);
   margin-bottom: 1.5rem;
   max-width: 500px;
   font-weight: 300;
 }
 
-/* Format Sequence */
-.sfo-sequence {
+/* Right Side: Production Cards */
+.sfo-card-stack {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
 }
 
-.sfo-item {
+.sfo-card {
   position: relative;
   background: var(--c05);
   border: 1px solid var(--c10);
-  padding: 4rem 3rem;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  opacity: 0.3;
-  transform: translateY(20px);
-  filter: grayscale(1) blur(2px);
+  padding: 3.5rem 2.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.sfo-item.active {
-  opacity: 1;
-  transform: translateY(0);
-  background: rgba(212, 255, 0, 0.03);
+.sfo-card:hover {
+  background: rgba(212, 255, 0, 0.02);
   border-color: var(--c25);
-  filter: grayscale(0) blur(0);
+  transform: translateY(-5px);
 }
 
-.sfo-item-meta {
+.sfo-card-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,13 +84,10 @@
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   color: var(--c25);
-  margin-bottom: 3rem;
-  transition: color 0.4s;
+  margin-bottom: 2.5rem;
 }
 
-.sfo-item.active .sfo-item-meta {
-  color: var(--lime);
-}
+.sfo-card:hover .sfo-card-meta { color: var(--lime); }
 
 .sfo-meta-line {
   flex-grow: 1;
@@ -108,44 +97,40 @@
   opacity: 0.2;
 }
 
-.sfo-item-content {
+.sfo-card-content {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
-.sfo-item-num {
+.sfo-card-num {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 8rem;
+  font-size: 6rem;
   line-height: 0.8;
   color: var(--c10);
-  transition: all 0.5s;
+  transition: color 0.4s;
 }
 
-.sfo-item.active .sfo-item-num {
-  color: var(--lime);
-  text-shadow: 0 0 20px rgba(212, 255, 0, 0.3);
-}
+.sfo-card:hover .sfo-card-num { color: var(--lime); }
 
-.sfo-item-body h3 {
+.sfo-card-body h3 {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: var(--cream);
   line-height: 1.1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   text-transform: uppercase;
 }
 
-.sfo-item-sub {
+.sfo-card-sub {
   font-family: "DM Mono", monospace;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   color: var(--c50);
   letter-spacing: 0.1em;
 }
 
-/* Viewfinder Corners */
-.sfo-item-corners .corner {
+.sfo-card-corners .corner {
   position: absolute;
   width: 15px;
   height: 15px;
@@ -153,11 +138,7 @@
   transition: all 0.4s;
 }
 
-.sfo-item.active .sfo-item-corners .corner {
-  border-color: var(--lime);
-  width: 25px;
-  height: 25px;
-}
+.sfo-card:hover .corner { border-color: var(--lime); }
 
 .corner.tl { top: 1.5rem; left: 1.5rem; border-right: 0; border-bottom: 0; }
 .corner.tr { top: 1.5rem; right: 1.5rem; border-left: 0; border-bottom: 0; }
@@ -166,22 +147,14 @@
 
 /* Mobile */
 @media (max-width: 1100px) {
-  .s-format { padding: 4rem 1.6rem 8rem; }
-  .sfo-container { grid-template-columns: 1fr; gap: 4rem; }
-  .sfo-header { position: relative; top: 0; }
-  .sfo-headline { font-size: 4rem; margin-bottom: 2rem; }
-  .sfo-item-num { font-size: 5rem; }
-  .sfo-item-body h3 { font-size: 2rem; }
+  .sfo-grid { grid-template-columns: 1fr; gap: 4rem; }
+  .sfo-left { position: relative; top: 0; }
+  .sfo-headline { font-size: 3.5rem; }
+  .sfo-card-num { font-size: 4.5rem; }
 }
 
 @media (max-width: 600px) {
-  .s-format { padding: 3rem 1rem 6rem; }
+  .sfo-card { padding: 2.5rem 1.5rem; }
+  .sfo-card-content { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .sfo-headline { font-size: 2.8rem; }
-  .sfo-intro-text p { font-size: 1rem; line-height: 1.6; }
-  .sfo-item { padding: 2.5rem 1.25rem; gap: 2rem; }
-  .sfo-item-content { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .sfo-item-num { font-size: 3.5rem; line-height: 1; margin-bottom: 0.5rem; }
-  .sfo-item-body h3 { font-size: 1.6rem; }
-  .sfo-item-meta { margin-bottom: 2rem; font-size: 0.6rem; }
-  .sfo-container { gap: 3rem; }
 }

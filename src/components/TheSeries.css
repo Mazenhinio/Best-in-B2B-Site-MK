@@ -140,6 +140,7 @@ section {
   width: max-content;
   height: 100%;
   will-change: transform;
+  transform: translateX(-50%); /* Start at center */
 }
 
 .fs-img {
@@ -150,20 +151,6 @@ section {
   filter: grayscale(100%) contrast(1.2);
   mix-blend-mode: multiply;
   display: block;
-}
-
-/* Animate exactly -50% of the row's own width = one-half of copies slides out,
-   the other half is perfectly in position — seamless loop */
-.fs-1 { animation: beltLeft  20s linear infinite; }
-.fs-2 { animation: beltRight 25s linear infinite; }
-
-@keyframes beltRight {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@keyframes beltLeft {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
 }
 
 /* ── ROLL IN ANIMATION (LEFT → RIGHT) ── */

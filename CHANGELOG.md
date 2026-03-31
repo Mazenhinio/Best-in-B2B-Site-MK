@@ -172,4 +172,7 @@ Final call-to-action with brand mark.
 | 14:40 | Comprehensive mobile optimization: Fixed horizontal scroll by capping Hero word sizes, added global overflow-x security, and enabled footer link wrapping |
 | 15:35 | Added "Video Showcase" section featuring 6 simultaneous playing 9:16 vertical videos with a broadcast control-room aesthetic |
 | 15:55 | Optimized Video Showcase for performance: Integrated WebM sources (achieving ~90% file size reduction) with MP4 fallbacks for smoother multi-video playback |
+| 16:00 | Converted "This is not a podcast" film strips from infinite loop to scroll-driven parallax for a more interactive diagonal crossing effect |
+| 16:05 | Redesigned "What This Involves" into a sticky-stack sequence: cards now replace each other in place as the section locks to the viewport during scroll. Intro copy moved to follow the interactive sequence. |
+| 16:10 | Scrapped sticky-stack logic for TheFormat in favor of a stable, high-end 2-column grid. Left side handles editorial copy (sticky), right side handles the production cards. This ensures 100% scroll reliability. |
 | 13:08 | Created this `CHANGELOG.md` file — all future changes must be documented here |
