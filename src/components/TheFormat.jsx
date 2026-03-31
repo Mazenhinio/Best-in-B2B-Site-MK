@@ -23,16 +23,20 @@ const TheFormat = () => {
     <section id="format-section" ref={sectionRef} className={`s-format reveal ${isVisible ? 'active' : ''}`}>
       <div className="sfo-grid">
         <div className="sfo-left">
-          <h3>THE FORMAT</h3>
-          <p>This is an editorial undertaking, not a pay-to-play feature.</p>
-          <p>We do not accept financial compensation for inclusion. We select you based on the impact you are driving. If selected, our production team travels to your headquarters for a cinematic, 90-minute interview designed to drill into your operating thesis, market maneuvers, and leadership mechanics.</p>
-          <p>The result is a broadcast-quality episode distributed across our institutional network.</p>
+          <div className="sfo-label">What This Involves</div>
+          <h3>One conversation. Treated like it matters.</h3>
+          <p>We come to you. A full dual-camera production crew, on-location at your office or a DFW setting of your choosing. The conversation is 45 minutes. The preparation is ours.</p>
+          <p>You receive topic questions 48 hours in advance. There is no script, no teleprompter, no performance. Only a conversation between professionals — recorded with the production value it deserves.</p>
+          <p>Within two weeks of filming, you receive a complete content package: a broadcast-quality full episode, short-form video clips formatted for LinkedIn, branded graphics, a transcript, and ready-to-publish captions. Everything. Delivered. Yours to keep permanently.</p>
+          <p>There is no cost to invited guests. No invoice arrives. No obligation to promote. No pitch during or after.</p>
         </div>
         <div className="sfo-right">
           <ul className="sfo-list">
-            <li><span className="sfo-num">01</span> No Pay-to-Play</li>
-            <li><span className="sfo-num">02</span> Cinematic Production</li>
-            <li><span className="sfo-num">03</span> Executive Distribution</li>
+            <li><span className="sfo-num">01 —</span> We come to you. On-location, DFW.</li>
+            <li><span className="sfo-num">02 —</span> 45 minutes. One conversation.</li>
+            <li><span className="sfo-num">03 —</span> Full production. Zero prep required.</li>
+            <li><span className="sfo-num">04 —</span> Your content package, delivered in two weeks.</li>
+            <li><span className="sfo-num">05 —</span> Yours permanently. No strings.</li>
           </ul>
         </div>
       </div>

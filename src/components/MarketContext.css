@@ -1,5 +1,6 @@
 /* ── S2: MARKET CONTEXT ───────── */
 .s-market { padding: 8rem 3.2rem; max-width: 1200px; margin: 0 auto; }
+.sm-headline { margin-bottom: 3.5rem; }
 .sm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 5rem; }
 .sm-item { padding-left: 1.5rem; border-left: 2px solid var(--lime); }
 .sm-stat { font-family: "Bebas Neue", sans-serif; font-size: 5rem; line-height: 1; color: var(--lime); margin-bottom: 1rem; }
@@ -8,5 +9,17 @@
 
 @media(max-width:900px){
   .s-market { padding: 5rem 1.6rem; }
-  .sm-grid { grid-template-columns: 1fr; gap: 4rem; }
+  .sm-headline { font-size: clamp(1.4rem, 4vw, 2rem); margin-bottom: 2.5rem; }
+  .sm-grid { grid-template-columns: 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .sm-stat { font-size: 4rem; }
+}
+
+@media(max-width:600px){
+  .s-market { padding: 4rem 1.2rem; }
+  .sm-label { font-size: 0.7rem; }
+  .sm-headline { font-size: clamp(1.2rem, 5vw, 1.6rem); margin-bottom: 2rem; }
+  .sm-grid { gap: 2.5rem; margin-bottom: 2rem; }
+  .sm-stat { font-size: 3.2rem; }
+  .sm-lbl { font-size: 0.78rem; }
+  .sm-thesis { font-size: 1rem; padding-top: 1.5rem; }
 }

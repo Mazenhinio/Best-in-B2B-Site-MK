@@ -17,13 +17,14 @@ const Hero = () => {
   useEffect(() => {
     // 1. Word Reveals (keep existing)
     const seq = [
-      {id:"wleaders", delay:680,  op: 1},
-      {id:"wdallas",  delay:860,  op: 1},
-      {id:"wthe",     delay:980,  op: 0.45},
-      {id:"wb2b",     delay:1080, op: 0.45},
-      {id:"wshaping", delay:1220, op: 0.45},
-      {id:"wbeing",   delay:1340, op: 0.45},
-      {id:"wdoc",     delay:1480, op: 1}
+      {id:"wthe",     delay:680,  op: 0.45},
+      {id:"wb2b",     delay:860,  op: 1},
+      {id:"wleaders", delay:980,  op: 1},
+      {id:"wshaping", delay:1080, op: 1},
+      {id:"wdallas",  delay:1220, op: 1},
+      {id:"ware",     delay:1340, op: 0.45},
+      {id:"wbeing",   delay:1480, op: 0.45},
+      {id:"wdoc",     delay:1620, op: 1}
     ];
 
     const wordTimeouts = seq.map((s) => {
@@ -96,8 +97,9 @@ const Hero = () => {
     <section className="hero" id="hero">
       {/* FAR LAYER: behind mic */}
       <div className="dl dl-far" ref={dlFarRef}>
-        <span className="dw w-leaders" ref={registerWord('wleaders')}>GIANTS</span>
-        <span className="dw w-dallas" ref={registerWord('wdallas')}>INDUSTRY</span>
+        <span className="dw w-shaping" ref={registerWord('wshaping')}>SHAPING</span>
+        <span className="dw w-dallas" ref={registerWord('wdallas')}>DALLAS</span>
+        <span className="dw w-are" ref={registerWord('ware')}>ARE</span>
       </div>
 
       {/* MIC LAYER */}
@@ -109,11 +111,11 @@ const Hero = () => {
 
       {/* NEAR LAYER */}
       <div className="dl dl-near" ref={dlNearRef}>
-        <span className="dw w-the" ref={registerWord('wthe')}>GIVING</span>
-        <span className="dw w-b2b" ref={registerWord('wb2b')}>THE</span>
-        <span className="dw w-shaping" ref={registerWord('wshaping')}>OF</span>
-        <span className="dw w-being" ref={registerWord('wbeing')}>A</span>
-        <span className="dw w-doc" ref={registerWord('wdoc')}>MICROPHONE.</span>
+        <span className="dw w-the" ref={registerWord('wthe')}>THE</span>
+        <span className="dw w-b2b" ref={registerWord('wb2b')}>B2B</span>
+        <span className="dw w-leaders" ref={registerWord('wleaders')}>LEADERS</span>
+        <span className="dw w-being" ref={registerWord('wbeing')}>BEING</span>
+        <span className="dw w-doc" ref={registerWord('wdoc')}>DOCUMENTED.</span>
       </div>
 
       <div className="hero-status-group">
@@ -142,9 +144,11 @@ const Hero = () => {
       <div className="hero-foot">
         <div className="hero-sub">
           Best in B2B is the definitive video series featuring the executives behind the region's most consequential B2B companies. Participation is by invitation only.
+          <br /><br />
+          <i>Season One is underway. The waitlist is open.</i>
         </div>
         <a href="#format-section" className="hero-cta">
-          View the format <span className="arr">→</span>
+          Request consideration <span className="arr">→</span>
         </a>
       </div>
 

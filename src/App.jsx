@@ -11,6 +11,7 @@ import WaitlistForm from './components/WaitlistForm';
 import FAQ from './components/FAQ';
 import FooterCTA from './components/FooterCTA';
 import VideoLoader from './components/VideoLoader';
+import Marquee from './components/Marquee';
 
 function App() {
   const [hasEntered, setHasEntered] = useState(false);
@@ -25,6 +26,7 @@ function App() {
         <div style={{ animation: 'fi 1s ease forwards' }}>
           <Nav />
           <Hero />
+          <Marquee />
           <TheSeries />
           <MarketContext />
           <TheFormat />

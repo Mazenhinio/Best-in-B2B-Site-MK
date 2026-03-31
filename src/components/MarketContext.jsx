@@ -21,22 +21,21 @@ const MarketContext = () => {
 
   return (
     <section ref={sectionRef} className={`s-market reveal ${isVisible ? 'active' : ''}`}>
+      <div className="sm-label">Why Now</div>
+      <h2 className="sm-headline">Dallas–Fort Worth is having its moment. Its leaders should be heard.</h2>
       <div className="sm-grid">
         <div className="sm-item">
           <div className="sm-stat">#1</div>
-          <div className="sm-lbl">Ranked U.S. market for commercial real estate investment</div>
+          <div className="sm-lbl">North American tech hub, 2025. DFW has surpassed every market except one. The executives building here are operating at a level the rest of the country is still catching up to.</div>
         </div>
         <div className="sm-item">
-          <div className="sm-stat">100+</div>
-          <div className="sm-lbl">Corporate headquarters relocated to DFW since 2020</div>
+          <div className="sm-stat">100</div>
+          <div className="sm-lbl">Corporate headquarters have relocated to DFW in six years. The business community here is not emerging. It has emerged. And its leaders have no unified editorial voice.</div>
         </div>
         <div className="sm-item">
           <div className="sm-stat">$1.6B</div>
-          <div className="sm-lbl">B2B marketing spend concentrated in the region annually</div>
+          <div className="sm-lbl">Raised by Dallas startups in 2025 alone. The capital is here. The companies are here. The talent is here. The platform hasn't been, until now.</div>
         </div>
-      </div>
-      <div className="sm-thesis">
-        DFW is no longer just a hub; it is the center of gravity for American business infrastructure. Yet the leaders orchestrating this growth remain largely undocumented. We are fixing that.
       </div>
     </section>
   );

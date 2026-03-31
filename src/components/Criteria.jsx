@@ -21,23 +21,27 @@ const Criteria = () => {
 
   return (
     <section ref={sectionRef} className={`s-criteria reveal ${isVisible ? 'active' : ''}`}>
-      <div className="cr-top">WHO IS CONSIDERED</div>
+      <div className="cr-top">
+        <div className="cr-label">The Guest Standard</div>
+        <h2 className="cr-headline">Not every leader will be invited.</h2>
+        <p className="cr-intro"><i>Season One is limited to twelve. We are deliberate about who sits in that seat.</i></p>
+      </div>
       <div className="cr-grid">
         <div className="cr-card">
-          <h4>SCALE</h4>
-          <p>Companies generating significant revenue, executing major acquisitions, or securing high-tier institutional capital.</p>
+          <h4>You lead, not manage.</h4>
+          <p>CMO, VP of Marketing, CEO, Founder. You are the person who sets the strategy, makes the call, and owns the outcome. Not the person who executes someone else's vision.</p>
         </div>
         <div className="cr-card mt">
-          <h4>IMPACT</h4>
-          <p>Leaders building products, logistics, or services that actively rewire how other businesses operate.</p>
+          <h4>You are physically in DFW.</h4>
+          <p>Not your company's registered address. You — in the room, in the market, in the community. Allen, Plano, Frisco, Irving, Dallas, Fort Worth. We film here because the story is here.</p>
         </div>
         <div className="cr-card">
-          <h4>GEOGRAPHY</h4>
-          <p>Must be headquartered or hold consequential flagship operations within the Dallas–Fort Worth metroplex.</p>
+          <h4>You sell to businesses.</h4>
+          <p>B2B is the only category we cover. SaaS, technology, professional services, fintech, industrial tech. Mid-market and above. Companies with real customers and real revenue.</p>
         </div>
         <div className="cr-card mt">
-          <h4>EXECUTIVE</h4>
-          <p>The featured individual must be a sitting Founder, CEO, or immediate C-suite equivalent.</p>
+          <h4>You have something worth saying.</h4>
+          <p>You've built something. Navigated something hard. You hold a perspective on marketing, growth, or leadership that the room hasn't heard yet. That is the only credential that truly matters here.</p>
         </div>
       </div>
     </section>

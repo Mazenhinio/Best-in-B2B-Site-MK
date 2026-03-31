@@ -15,11 +15,11 @@ nav {
 .nlogo em { color: var(--lime); font-style: normal; }
 
 .nright {
-  display: flex; align-items: center; gap: .55rem;
-  font-size: .45rem; letter-spacing: .2em; text-transform: uppercase; color: var(--c50);
+  display: flex; align-items: center; gap: .75rem;
+  font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--c50);
 }
 
 .npulse {
-  width: 5px; height: 5px; border-radius: 50%; background: var(--lime);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--lime);
   animation: pulse 2.6s ease-in-out infinite;
 }
