@@ -12,19 +12,21 @@ const Hero = () => {
     if (el) wordsRef.current[id] = el;
   };
 
+  const [seatCount, setSeatCount] = React.useState(0);
+
   useEffect(() => {
-    // 1. Word Reveals
+    // 1. Word Reveals (keep existing)
     const seq = [
-      {id:"wleaders", delay:680,  op: 1},     // GIANTS (Solid White)
-      {id:"wdallas",  delay:860,  op: 1},     // INDUSTRY (Solid White)
-      {id:"wthe",     delay:980,  op: 0.45},  // GIVING (Bright Grey)
-      {id:"wb2b",     delay:1080, op: 0.45},  // THE (Bright Grey)
-      {id:"wshaping", delay:1220, op: 0.45},  // OF (Bright Grey)
-      {id:"wbeing",   delay:1340, op: 0.45},  // A (Bright Grey)
-      {id:"wdoc",     delay:1480, op: 1}      // MICROPHONE. (Lime Green)
+      {id:"wleaders", delay:680,  op: 1},
+      {id:"wdallas",  delay:860,  op: 1},
+      {id:"wthe",     delay:980,  op: 0.45},
+      {id:"wb2b",     delay:1080, op: 0.45},
+      {id:"wshaping", delay:1220, op: 0.45},
+      {id:"wbeing",   delay:1340, op: 0.45},
+      {id:"wdoc",     delay:1480, op: 1}
     ];
 
-    const timeouts = seq.map((s) => {
+    const wordTimeouts = seq.map((s) => {
       return setTimeout(() => {
         const el = wordsRef.current[s.id];
         if (el) {
@@ -34,7 +36,20 @@ const Hero = () => {
       }, s.delay);
     });
 
-    // 2. Parallax
+    // 2. Seat Filling Animation (NEW)
+    const totalFilled = 4;
+    const duration = 1200; // ms
+    const step = duration / totalFilled;
+    
+    const seatInterval = setInterval(() => {
+      setSeatCount(prev => {
+        if (prev < totalFilled) return prev + 1;
+        clearInterval(seatInterval);
+        return prev;
+      });
+    }, step);
+
+    // 3. Parallax (keep existing)
     let fX=0, fY=0, mX=0, mY=0, nX=0, nY=0;
     let tfX=0, tfY=0, tmX=0, tmY=0, tnX=0, tnY=0;
     let cmx=.5, cmy=.5, tmxR=.5, tmyR=.5;
@@ -55,34 +70,22 @@ const Hero = () => {
       cmy += (tmyR - cmy) * .055;
       const dx = cmx - .5;
       const dy = cmy - .5;
-
-      tfX = dx * -48;
-      tfY = dy * -32 + scrollY * .6;
-
-      tmX = dx * -16;
-      tmY = dy * -10 + scrollY * .35;
-
-      tnX = dx * 32;
-      tnY = dy * 22 + scrollY * .18;
-
-      fX += (tfX - fX) * .045;
-      fY += (tfY - fY) * .045;
-      mX += (tmX - mX) * .045;
-      mY += (tmY - mY) * .045;
-      nX += (tnX - nX) * .045;
-      nY += (tnY - nY) * .045;
-
+      tfX = dx * -48; tfY = dy * -32 + scrollY * .6;
+      tmX = dx * -16; tmY = dy * -10 + scrollY * .35;
+      tnX = dx * 32;  tnY = dy * 22 + scrollY * .18;
+      fX += (tfX - fX) * .045; fY += (tfY - fY) * .045;
+      mX += (tmX - mX) * .045; mY += (tmY - mY) * .045;
+      nX += (tnX - nX) * .045; nY += (tnY - nY) * .045;
       if (dlFarRef.current) dlFarRef.current.style.transform = `translate(${fX.toFixed(1)}px,${fY.toFixed(1)}px)`;
       if (dlMicRef.current) dlMicRef.current.style.transform = `translate(${mX.toFixed(1)}px,${mY.toFixed(1)}px)`;
       if (dlNearRef.current) dlNearRef.current.style.transform = `translate(${nX.toFixed(1)}px,${nY.toFixed(1)}px)`;
-
       rAF = requestAnimationFrame(pLoop);
     };
-    
     rAF = requestAnimationFrame(pLoop);
 
     return () => {
-      timeouts.forEach(clearTimeout);
+      wordTimeouts.forEach(clearTimeout);
+      clearInterval(seatInterval);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(rAF);
@@ -116,23 +119,16 @@ const Hero = () => {
       <div className="hero-status-group">
         <div className="eyebrow">DALLAS – FORT WORTH · SEASON ONE · LIMITED TO TWELVE</div>
         
-        {/* SEAT UI */}
         <div className="seat-ui">
-          <div className="seat-num">04<span style={{ color: 'var(--c25)' }}>/12</span></div>
+          <div className="seat-num">{String(seatCount).padStart(2, '0')}<span style={{ color: 'var(--c25)' }}>/12</span></div>
           <div className="seat-lbl">Seats filled</div>
           <div className="seat-dots">
-            <div className="sd on"></div>
-            <div className="sd on"></div>
-            <div className="sd on"></div>
-            <div className="sd on"></div>
-            <div className="sd pnd"></div>
-            <div className="sd pnd"></div>
-            <div className="sd"></div>
-            <div className="sd"></div>
-            <div className="sd"></div>
-            <div className="sd"></div>
-            <div className="sd"></div>
-            <div className="sd"></div>
+            {[...Array(12)].map((_, i) => (
+              <div 
+                key={i} 
+                className={`sd ${i < seatCount ? 'on' : ''} ${i >= seatCount && i < seatCount + 2 ? 'pnd' : ''}`}
+              ></div>
+            ))}
           </div>
         </div>
       </div>
@@ -140,6 +136,7 @@ const Hero = () => {
       <div className="rec">
         <div className="recdot"></div> REC
       </div>
+
 
       {/* BOTTOM FOOT */}
       <div className="hero-foot">

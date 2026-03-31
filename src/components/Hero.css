@@ -110,10 +110,38 @@
   color: var(--c50); margin-top: .1rem;
 }
 
-.seat-dots { display: flex; gap: 5px; margin-top: .4rem; }
-.sd { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--c25); }
-.sd.on { background: var(--lime); border-color: var(--lime); box-shadow: 0 0 8px rgba(212,255,0,.4); }
-.sd.pnd { background: rgba(212,255,0,.12); border-color: rgba(212,255,0,.35); }
+.seat-dots { display: flex; gap: 6px; margin-top: .4rem; }
+.sd { 
+  width: 7px; height: 7px; border-radius: 50%; 
+  border: 1px solid var(--c25); 
+  transition: all 0.3s cubic-bezier(.16,1,.3,1);
+  will-change: transform, background;
+}
+
+.sd.on { 
+  background: var(--lime); 
+  border-color: var(--lime); 
+  box-shadow: 0 0 12px var(--lime); 
+  animation: sdPop 0.5s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.sd.pnd { 
+  background: rgba(212,255,0,0.15); 
+  border-color: rgba(212,255,0,0.4); 
+  animation: sdPulse 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes sdPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.6); filter: brightness(1.5); }
+  100% { transform: scale(1); }
+}
+
+@keyframes sdPulse {
+  0% { opacity: 0.3; transform: scale(0.9); }
+  100% { opacity: 0.9; transform: scale(1.1); }
+}
+
 
 /* ── BOTTOM FOOT ─────────────── */
 .hero-foot {
