@@ -23,10 +23,9 @@ const FooterCTA = () => {
     <section ref={sectionRef} className={`s-end reveal ${isVisible ? 'active' : ''}`}>
       <div className="cta-head">Twelve leaders. One record. Dallas-Fort Worth.</div>
       <div className="cta-sub" style={{fontStyle: 'italic', marginBottom: '2rem', color: 'var(--c80)'}}>The room is being set. The question is whether your name is in it.</div>
-      <form className="cta-form" onSubmit={(e) => e.preventDefault()}>
-        <input type="email" placeholder="Your business email" required />
-        <button type="submit" className="cta-btn">Request Consideration</button>
-      </form>
+      <a href="#request" className="hero-cta">
+        Request Consideration <span className="arr">→</span>
+      </a>
       <div className="cta-micro" style={{fontSize: '0.8rem', marginTop: '1rem', color: 'var(--c50)'}}>Reviewed personally · 72-hour response · DFW only</div>
       <div className="foot-wrap" style={{marginTop: '6rem'}}>
         <div className="foot-copy">Best in B2B</div>

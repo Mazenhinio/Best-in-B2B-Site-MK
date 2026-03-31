@@ -50,34 +50,43 @@ const WaitlistForm = () => {
           <p>We do not follow up with sales emails. We do not add you to a newsletter. We contact you once, with an answer.</p>
         </div>
         <div className="wl-right">
-          <form className="wl-protocol" onSubmit={(e) => e.preventDefault()}>
-            <div className={`wl-field ${step >= 1 ? 'active' : ''}`}>
-              <label>Full Name <span>[ENTER]</span></label>
-              <input type="text" id="wlf-1" placeholder="Jane Doe" onKeyDown={(e) => handleKeyDown(e, 2)} disabled={step !== 1} />
-            </div>
-            <div className={`wl-field ${step >= 2 ? 'active' : ''}`}>
-              <label>Title <span>[ENTER]</span></label>
-              <input type="text" id="wlf-2" placeholder="CMO" onKeyDown={(e) => handleKeyDown(e, 3)} disabled={step !== 2} />
-            </div>
-            <div className={`wl-field ${step >= 3 ? 'active' : ''}`}>
-              <label>Company <span>[ENTER]</span></label>
-              <input type="text" id="wlf-3" placeholder="Acme Corp" onKeyDown={(e) => handleKeyDown(e, 4)} disabled={step !== 3} />
-            </div>
-            <div className={`wl-field ${step >= 4 ? 'active' : ''}`}>
-              <label>Business Email <span>[ENTER]</span></label>
-              <input type="email" id="wlf-4" placeholder="jane@acme.com" onKeyDown={(e) => handleKeyDown(e, 5)} disabled={step !== 4} />
-            </div>
-            <div className={`wl-field ${step >= 5 ? 'active' : ''}`}>
-              <label>City within DFW <span>[ENTER]</span></label>
-              <input type="text" id="wlf-5" placeholder="Dallas, TX" onKeyDown={(e) => handleKeyDown(e, 6)} disabled={step !== 5} />
-            </div>
-            <div className={`wl-submit ${step >= 6 ? 'active' : ''}`}>
-              <button type="button" onClick={() => alert("Form Submitted!")}>
+          {step < 6 ? (
+            <form className="wl-protocol" onSubmit={(e) => e.preventDefault()}>
+              <div className={`wl-field ${step >= 1 ? 'active' : ''}`}>
+                <label>Full Name <span>[ENTER]</span></label>
+                <input type="text" id="wlf-1" placeholder="Jane Doe" onKeyDown={(e) => handleKeyDown(e, 2)} />
+              </div>
+              <div className={`wl-field ${step >= 2 ? 'active' : ''}`}>
+                <label>Title <span>[ENTER]</span></label>
+                <input type="text" id="wlf-2" placeholder="CMO" onKeyDown={(e) => handleKeyDown(e, 3)} />
+              </div>
+              <div className={`wl-field ${step >= 3 ? 'active' : ''}`}>
+                <label>Company <span>[ENTER]</span></label>
+                <input type="text" id="wlf-3" placeholder="Acme Corp" onKeyDown={(e) => handleKeyDown(e, 4)} />
+              </div>
+              <div className={`wl-field ${step >= 4 ? 'active' : ''}`}>
+                <label>Business Email <span>[ENTER]</span></label>
+                <input type="email" id="wlf-4" placeholder="jane@acme.com" onKeyDown={(e) => handleKeyDown(e, 5)} />
+              </div>
+              <div className={`wl-field ${step >= 5 ? 'active' : ''}`}>
+                <label>City within DFW <span>[ENTER]</span></label>
+                <input type="text" id="wlf-5" placeholder="Dallas, TX" onKeyDown={(e) => handleKeyDown(e, 6)} />
+              </div>
+            </form>
+          ) : step === 6 ? (
+            <div className="wl-submit-phase">
+               <button className="wl-btn-final" onClick={() => setStep(7)}>
                 Submit for Consideration
               </button>
               <div className="wl-meta">Reviewed personally within 72 hours<br/>Season One · Twelve guests · Dallas–Fort Worth</div>
             </div>
-          </form>
+          ) : (
+            <div className="wl-success-box">
+              <div className="rec-dot-small"></div>
+              <h3>Your profile has been received.</h3>
+              <p>If there is a fit for Season One, you will hear from us within 72 hours. No follow-up needed on your end.</p>
+            </div>
+          )}
         </div>
       </div>
     </section>

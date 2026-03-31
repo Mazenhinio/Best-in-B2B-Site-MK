@@ -21,7 +21,10 @@ const MarketContext = () => {
 
   return (
     <section ref={sectionRef} className={`s-market reveal ${isVisible ? 'active' : ''}`}>
-      <div className="sm-label">Why Now</div>
+      <div className="sm-eyebrow">
+        <div className="eb-line"></div>
+        <span>Why Now</span>
+      </div>
       <h2 className="sm-headline">Dallas–Fort Worth is having its moment. Its leaders should be heard.</h2>
       <div className="sm-grid">
         <div className="sm-item">

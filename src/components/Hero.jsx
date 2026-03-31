@@ -147,7 +147,7 @@ const Hero = () => {
           <br /><br />
           <i>Season One is underway. The waitlist is open.</i>
         </div>
-        <a href="#format-section" className="hero-cta">
+        <a href="#request" className="hero-cta">
           Request consideration <span className="arr">→</span>
         </a>
       </div>

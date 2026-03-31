@@ -1,28 +1,135 @@
 /* ── S5: WAITLIST ────────────── */
-.s-waitlist { padding: 10rem 3.2rem; max-width: 800px; margin: 0 auto; border-top: 1px solid var(--c10); }
-.wl-header { font-family: "DM Mono", monospace; font-size: 0.9rem; letter-spacing: 0.25em; color: var(--lime); margin-bottom: 2rem; text-transform: uppercase; }
-.wl-sub { font-family: "Barlow", sans-serif; font-weight: 300; font-size: 1.1rem; line-height: 1.7; color: var(--c80); margin-bottom: 4rem; }
+.s-waitlist { 
+  padding: 12rem 4rem; 
+  max-width: 1400px; 
+  margin: 0 auto; 
+}
 
-.wl-protocol { display: flex; flex-direction: column; gap: 2rem; }
-.wl-field { display: none; opacity: 0; transform: translateY(10px); transition: all 0.6s cubic-bezier(.16,1,.3,1); }
-.wl-field.active { display: block; opacity: 1; transform: translateY(0); }
+.wl-header { 
+  font-family: "Bebas Neue", sans-serif; 
+  font-size: 4.5rem; line-height: 0.95; 
+  color: var(--cream); 
+  text-transform: uppercase; 
+  margin-bottom: 2rem; 
+  max-width: 800px;
+}
 
-.wl-field label { display: flex; justify-content: space-between; font-family: "DM Mono", monospace; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--c50); text-transform: uppercase; margin-bottom: 0.5rem; }
+.wl-sub { 
+  font-family: "Barlow", sans-serif; 
+  font-size: 1.25rem; 
+  color: var(--c50); 
+  margin-bottom: 6rem; 
+}
+
+.wl-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+}
+
+.wl-left {
+  font-family: "DM Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--c80);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wl-right {
+  position: relative;
+}
+
+.wl-protocol { display: flex; flex-direction: column; gap: 3rem; }
+
+.wl-field { 
+  opacity: 0.15; 
+  transform: translateY(10px); 
+  transition: all 0.8s cubic-bezier(.16,1,.3,1); 
+}
+.wl-field.active { opacity: 1; transform: translateY(0); }
+
+.wl-field label { 
+  display: flex; justify-content: space-between; 
+  font-family: "DM Mono", monospace; font-size: 0.75rem; 
+  letter-spacing: 0.15em; color: var(--c50); 
+  text-transform: uppercase; margin-bottom: 0.75rem; 
+}
 .wl-field label span { color: var(--lime); opacity: 0.5; }
 
-.wl-field input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--c25); color: var(--cream); font-family: "Barlow", sans-serif; font-size: 2rem; padding: 0.5rem 0; outline: none; transition: border-color 0.3s; }
+.wl-field input { 
+  width: 100%; background: transparent; border: none; 
+  border-bottom: 1px solid var(--c25); color: var(--cream); 
+  font-family: "Barlow", sans-serif; font-size: 2.2rem; 
+  padding: 0.75rem 0; outline: none; transition: border-color 0.4s; 
+}
 .wl-field input:focus { border-color: var(--lime); }
-.wl-field input:disabled { color: var(--c50); border-color: transparent; }
 
-.wl-submit { display: none; opacity: 0; margin-top: 2rem; }
-.wl-submit.active { display: block; opacity: 1; animation: fi 1s ease forwards 0.3s; }
+.wl-submit-phase {
+  margin-top: 2rem;
+  animation: fadeIn 0.8s ease forwards;
+}
 
-.wl-submit button { background: none; border: none; color: var(--cream); font-family: "DM Mono", monospace; font-size: 1rem; letter-spacing: 0.22em; padding: 1rem 0; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; transition: color 0.3s; text-transform: uppercase; }
-.wl-submit button:hover { color: var(--lime); }
-.wl-submit button .arr { transition: transform 0.45s cubic-bezier(.16,1,.3,1); }
-.wl-submit button:hover .arr { transform: translateX(8px); }
+.wl-btn-final {
+  background: var(--lime); color: var(--blk);
+  border: none; padding: 1.25rem 3rem;
+  font-family: "DM Mono", monospace; font-size: 0.85rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.3s;
+  margin-bottom: 2rem;
+}
+.wl-btn-final:hover { transform: scale(1.05); background: #fff; }
 
-@media(max-width:900px){
-  .s-waitlist { padding: 5rem 1.6rem; }
-  .wl-field input { font-size: 1.5rem; }
+.wl-meta {
+  font-family: "DM Mono", monospace; font-size: 0.7rem; line-height: 1.6;
+  color: var(--c50); letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* SUCCESS BOX */
+.wl-success-box {
+  background: #111;
+  padding: 4rem;
+  border: 1px solid var(--c10);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  animation: scaleIn 0.6s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.wl-success-box h3 {
+  font-family: "Bebas Neue", sans-serif; font-size: 3rem; color: var(--cream);
+  margin: 1.5rem 0 1rem;
+}
+
+.wl-success-box p {
+  font-family: "DM Mono", monospace; font-size: 0.85rem; color: var(--c80);
+  max-width: 400px; line-height: 1.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media(max-width:1100px){
+  .wl-layout { grid-template-columns: 1fr; gap: 4rem; }
+  .wl-header { font-size: 3.5rem; }
+  .wl-left { order: 2; }
+  .wl-right { order: 1; }
+}
+
+@media(max-width:600px){
+  .s-waitlist { padding: 6rem 1.6rem; }
+  .wl-header { font-size: 2.8rem; }
+  .wl-field input { font-size: 1.8rem; }
 }

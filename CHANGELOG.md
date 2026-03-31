@@ -84,19 +84,28 @@ An infinite scrolling ticker between Hero and TheSeries sections. Acts as a visu
 ### 5. MarketContext — "Why Now"
 Three stat pillars: **#1**, **100**, **$1.6B**. Grid layout, lime left-border accents.
 
-### 6. TheFormat
-How the show works — format breakdown.
+### 6. TheFormat — "What This Involves"
+- **Interactive Stack:** A 300vh scroll-track that pins the section while cycling through 5 production cards in-place.
+- **Editorial Brief:** A high-contrast transition into a centered-gutter briefing section.
+- **Artifact System:** 4 real-life matte-black broadcast cutouts (Camera, Light, Slate, Headphones) with scroll-driven "Pan-Entrance" and asynchronous "Drift" animations.
 
-### 7. Criteria
-Guest selection standards — the editorial bar.
+### 7. Video Showcase — "The Finished Record"
+- **Aesthetic Flip:** A full-width transition to a high-contrast **Cream Background** (`--cream`).
+- **Gallery Layout:** Provides a clean museum-style environment where dark-themed 9:16 vertical videos pop with cinematic clarity.
+- **Performance:** Simultaneous multi-video playback using optimized WebM tracks.
 
-### 8. WaitlistForm
+### 8. Criteria — "Who Is Considered"
+- **Tactile Desk:** 4 "Editorial Folder" cards laid out on a dark blueprint surface.
+- **Interaction:** Dynamic 3D tilt-on-hover reaction for each card, creating a mechanical depth effect.
+- **Artifacts:** Unique visual anchors for each criterion: Director's Pass (Leadership), DFW Map (Location), B2B Monitor (Category), and Audio Tape Reel (Perspective).
+
+### 9. WaitlistForm
 Lead capture form with intake fields.
 
-### 9. FAQ
+### 10. FAQ
 Accordion-style Q&A.
 
-### 10. FooterCTA
+### 11. FooterCTA
 Final call-to-action with brand mark.
 
 ---
@@ -167,6 +176,25 @@ Final call-to-action with brand mark.
 | 11:00 | Fixed hero word opacity bug — JavaScript `el.style.opacity` inline sequence was overriding CSS; corrected values in `seq` array in `Hero.jsx` |
 | 11:05 | Added `margin-bottom: 3.5rem` to MarketContext subheadline for spacing above stat pillars |
 | 11:06 | Mobile optimisation pass — added comprehensive `900px` and `600px` breakpoints for Hero, TheSeries, and MarketContext |
+| 17:40 | Redesigned "Criteria" section into a high-end "Tactile Desk": 4 "Editorial Folder" cards featuring 3D tilt-on-hover interaction and unique mechanical artifacts (Director's Pass, DFW Map, B2B Monitor, Tape Reel). |
+
+---
+
+### Previous Changes (Historical)
+
+| Time | Change |
+|---|---|
+| 16:50 | Redesigned "What This Involves" into a high-precision sticky-stack: 5 cards cycle in-place while section is pinned, followed by a wide-gutter "Editorial Brief" revealed upon scroll-through. |
+| 16:55 | Implemented "Camera! Lights! Action!" asset system: Added 4 matte-black cutouts (Camera, Light, Slate, Headphones) with full-entrance panning, continuous parallax, and asynchronous drift animations. |
+| 17:05 | Global Fix: Resolved double-scrollbar bug by consolidating overflow to the `html` element and setting `body` overflow to `visible`. |
+| 17:15 | Aesthetic Flip: Transitioned "Video Showcase" section to a high-contrast Cream Background (`--cream`) to create a gallery-style separation from the production briefing. |
+
+---
+
+### Previous Changes (Historical)
+
+| Time | Change |
+|---|---|
 | 14:15 | Redesigned "What This Involves" section with a cinematic broadcast aesthetic: sticky header, scroll-triggered active states, and viewfinder-style UI elements |
 | 14:35 | Reduced top padding and adjusted sticky position of "What This Involves" section for better header visibility |
 | 14:40 | Comprehensive mobile optimization: Fixed horizontal scroll by capping Hero word sizes, added global overflow-x security, and enabled footer link wrapping |
