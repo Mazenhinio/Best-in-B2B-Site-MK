@@ -27,10 +27,10 @@ const Criteria = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
   
   const criteriaList = [
-    { title: "Senior Leadership", text: "Founders, CEOs, and C-Suite Executives at established organizations or high-growth ventures.", img: "/exec_stage_1.png" },
-    { title: "DFW Based", text: "You must be operating your primary business from the Dallas–Fort Worth metroplex.", img: "/exec_stage_2.png" },
-    { title: "B2B Focused", text: "The core of your value proposition must be business-to-business commerce or services.", img: "/exec_stage_3.png" },
-    { title: "Point of View", text: "We look for unique perspectives that challenge the consensus of standard business practices.", img: "/exec_stage_4.png" }
+    { title: "Senior Leadership", text: "Founders, CEOs, and C-Suite Executives at established organizations or high-growth ventures.", img: "/Female Executive 2.png" },
+    { title: "DFW Based", text: "You must be operating your primary business from the Dallas–Fort Worth metroplex.", img: "/cool-african-mature-businessman-walking-along-the-2026-01-06-10-10-07-utc-removebg-preview.png" },
+    { title: "B2B Focused", text: "The core of your value proposition must be business-to-business commerce or services.", img: "/Female Excutive white Power Pose.png" },
+    { title: "Point of View", text: "We look for unique perspectives that challenge the consensus of standard business practices.", img: "/Top down shot of Kurd Executive.png" }
   ];
 
   useEffect(() => {

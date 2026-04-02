@@ -142,6 +142,8 @@ Final call-to-action with brand mark.
 ### 2026-04-02
 | Time | Change |
 |---|---|
+| 12:33 | **Criteria Assets:** Refined female executive cutouts to use "Executive 2" and "White Power Pose" assets for higher visual impact. |
+| 12:28 | **Criteria Assets:** Replaced placeholder executive images with high-resolution authentic cutouts (Senior Leaders, DFW Executives). |
 | 03:40 | **Brand Integration:** Swapped typographic logos for official assets — **Logo shield only.png** (Nav/Favicon) and **Logo.png** (Footer). |
 | 03:41 | **Nav Architecture:** Shifted Nav upwards (resolved overlap) by thinning padding to 1.2rem; scaled Shield Mark to an authoritative 55px. |
 | 03:42 | **Nav Metadata:** Re-injected full series string: "SEASON ONE · DALLAS – FORT WORTH · LIMITED TO TWELVE" at a bold 1.1rem scale. |
