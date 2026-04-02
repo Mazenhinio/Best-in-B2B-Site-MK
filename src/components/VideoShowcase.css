@@ -1,21 +1,21 @@
 /* ── S3.5: VIDEO SHOWCASE ──────────── */
 .sfo-showcase-wrapper {
-  background: var(--cream);
+  background: var(--blk);
   width: 100%;
 }
 
 .s-showcase { 
-  padding: 8rem 2rem; 
+  padding: 2rem 2rem 6rem 2rem; 
   max-width: 1600px; 
   margin: 0 auto; 
   overflow: hidden; 
 }
 
-.show-header { margin-bottom: 5rem; text-align: center; }
+.show-header { margin-bottom: 3rem; text-align: center; }
 
 .show-label { 
   display: flex; align-items: center; justify-content: center; gap: 0.8rem; 
-  font-family: "DM Mono", monospace; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--blk); 
+  font-family: "DM Mono", monospace; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--cream); 
   opacity: 0.6;
   margin-bottom: 2.5rem;
 }
@@ -23,7 +23,7 @@
 .rec-dot-small { width: 6px; height: 6px; border-radius: 50%; background: #ff0000; box-shadow: 0 0 10px #ff0000; animation: pulse 1.6s ease infinite; }
 
 .show-title { 
-  font-family: "Bebas Neue", sans-serif; font-size: 5rem; line-height: 0.95; color: var(--blk); 
+  font-family: "Bebas Neue", sans-serif; font-size: 5rem; line-height: 0.95; color: var(--cream); 
   text-transform: uppercase; 
 }
 

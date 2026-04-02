@@ -1,103 +1,130 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Criteria.css';
 
-const CriteriaCard = ({ title, content, asset, label }) => {
-  const cardRef = useRef(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
-    setTilt({ x, y });
-  };
-
-  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
-
-  return (
-    <div 
-      ref={cardRef}
-      className={`cr-folder-card cr-${label.toLowerCase()}`}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transform: `perspective(1000px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`
-      }}
-    >
-      <div className="cr-card-inner">
-        <div className="cr-folder-tab">{label}</div>
-        <div className="cr-artifact">
-          <img src={asset} alt="" />
-        </div>
-        <div className="cr-card-content">
-          <h4>{title}</h4>
-          <p>{content}</p>
-        </div>
-        <div className="cr-folder-corners">
-          <div className="cr-c tl"></div><div className="cr-c tr"></div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const Criteria = () => {
-  const sectionRef = useRef(null);
-  const [active, setActive] = useState(false);
+  const elementsRef = useRef([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) setActive(true);
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
     }, { threshold: 0.1 });
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => sectionRef.current && observer.unobserve(sectionRef.current);
+
+    elementsRef.current.forEach(el => {
+      if (el) observer.observe(el);
+    });
   }, []);
 
-  const items = [
-    { 
-      label: "LEADERSHIP",
-      title: "You lead, not manage.", 
-      content: "CMO, VP of Marketing, CEO, Founder. You are the person who sets the strategy, makes the call, and owns the outcome. Not the person who executes someone else's vision.",
-      asset: "/criteria_1.png"
-    },
-    { 
-      label: "LOCATION",
-      title: "You are physically in DFW.", 
-      content: "Not your company's registered address. You — in the room, in the market, in the community. Allen, Plano, Frisco, Irving, Dallas, Fort Worth. We film here because the story is here.",
-      asset: "/criteria_2.png"
-    },
-    { 
-      label: "CATEGORY",
-      title: "You sell to businesses.", 
-      content: "B2B is the only category we cover. SaaS, technology, professional services, fintech, industrial tech. Mid-market and above. Companies with real customers and real revenue.",
-      asset: "/criteria_3.png"
-    },
-    { 
-      label: "PERSPECTIVE",
-      title: "You have something worth saying.", 
-      content: "You've built something. Navigated something hard. You hold a perspective on marketing, growth, or leadership that the room hasn't heard yet. That is the only credential that truly matters here.",
-      asset: "/criteria_4.png"
+  const addToRefs = (el) => {
+    if (el && !elementsRef.current.includes(el)) {
+      elementsRef.current.push(el);
     }
+  };
+
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  
+  const criteriaList = [
+    { title: "Senior Leadership", text: "Founders, CEOs, and C-Suite Executives at established organizations or high-growth ventures.", img: "/exec_stage_1.png" },
+    { title: "DFW Based", text: "You must be operating your primary business from the Dallas–Fort Worth metroplex.", img: "/exec_stage_2.png" },
+    { title: "B2B Focused", text: "The core of your value proposition must be business-to-business commerce or services.", img: "/exec_stage_3.png" },
+    { title: "Point of View", text: "We look for unique perspectives that challenge the consensus of standard business practices.", img: "/exec_stage_4.png" }
   ];
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % criteriaList.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [criteriaList.length]);
+
   return (
-    <section ref={sectionRef} className={`s-criteria ${active ? 'active' : ''}`}>
-      <div className="cr-desk-bg"></div>
-      <div className="cr-container">
-        <div className="cr-header">
-          <div className="cr-eyebrow">
-            <div className="cre-line"></div>
-            <span>THE GUEST STANDARD</span>
-          </div>
-          <h2 className="cr-title">NOT EVERY LEADER <br />WILL BE INVITED.</h2>
-          <p className="cr-subtitle">Season One is limited to twelve. We are deliberate about who sits in that seat.</p>
+    <section className="s-criteria" id="criteria">
+      <div className="criteria-container">
+        <div className="criteria-header reveal" ref={addToRefs}>
+          <div className="editorial-label">07 // THE STANDARD</div>
+          <h2>Who is <i>Invited</i></h2>
         </div>
 
-        <div className="cr-folders-grid">
-          {items.map((item, idx) => (
-            <CriteriaCard key={idx} {...item} />
-          ))}
+        <div className="criteria-stage">
+          {/* NEW ASYMMETRIC LAYOUT */}
+          <div className="crit-split-layout">
+            <div className="crit-narrative-rail">
+              {criteriaList.map((c, i) => (
+                <div key={i} className={`crit-narrative-box ${i === activeIndex ? 'active' : ''}`}>
+                  <span className="crit-index">0{i+1}</span>
+                  <h3 className="crit-title">{c.title}</h3>
+                  <p className="crit-text">{c.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="crit-visual-stage">
+              {criteriaList.map((c, i) => (
+                <img 
+                  key={i} 
+                  src={c.img} 
+                  alt={c.title} 
+                  className={`crit-img-profile ${i === activeIndex ? 'active' : ''}`} 
+                />
+              ))}
+              <div className="crit-floor-shadow"></div>
+            </div>
+          </div>
+
+          {/* PREVIOUS CENTER-STAGE LAYOUT (COMMENTED)
+          <div className="criteria-content-grid">
+            <div className="crit-left">
+              <div className="crit-anim-wrapper">
+                {criteriaList.map((c, i) => (
+                  <div key={i} className={`crit-val-box ${i === activeIndex ? 'active' : ''}`}>
+                    <span className="crit-index">0{i+1}</span>
+                    <h3 className="crit-title">{c.title}</h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="crit-center">
+              <div className="crit-image-rail">
+                {criteriaList.map((c, i) => (
+                  <img 
+                    key={i} 
+                    src={c.img} 
+                    alt={c.title} 
+                    className={`crit-img-profile ${i === activeIndex ? 'active' : ''}`} 
+                  />
+                ))}
+              </div>
+              <div className="crit-floor-glow"></div>
+            </div>
+
+            <div className="crit-right">
+              <div className="crit-anim-wrapper">
+                {criteriaList.map((c, i) => (
+                  <div key={i} className={`crit-desc-box ${i === activeIndex ? 'active' : ''}`}>
+                    <p className="crit-text">{c.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          */}
+          
+          <div className="criteria-nav">
+             {criteriaList.map((_, i) => (
+               <button 
+                key={i} 
+                onClick={() => setActiveIndex(i)} 
+                className={`crit-dot ${i === activeIndex ? 'active' : ''}`}
+               >
+                 <span className="dot-line"></span>
+                 <span className="dot-num">0{i+1}</span>
+               </button>
+             ))}
+          </div>
         </div>
       </div>
     </section>

@@ -60,16 +60,6 @@ const VideoShowcase = () => {
                   <source src={`/${vid.base}.webm`} type="video/webm" />
                   <source src={`/${vid.base}.mp4`} type="video/mp4" />
                 </video>
-                <div className="vid-ui">
-                  <div className="v-cam">CAM_{idx + 1}</div>
-                  <div className="v-time">00:45:00:00</div>
-                </div>
-                <div className="v-corners">
-                  <div className="v-corner tl"></div>
-                  <div className="v-corner tr"></div>
-                  <div className="v-corner bl"></div>
-                  <div className="v-corner br"></div>
-                </div>
               </div>
             </div>
           ))}

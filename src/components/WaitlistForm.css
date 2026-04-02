@@ -1,135 +1,180 @@
-/* ── S5: WAITLIST ────────────── */
-.s-waitlist { 
-  padding: 12rem 4rem; 
-  max-width: 1400px; 
-  margin: 0 auto; 
+.s-waitlist {
+  background: #000;
+  color: var(--cream) !important;
+  padding: 10rem 2rem;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 50;
+  overflow: hidden;
 }
 
-.wl-header { 
-  font-family: "Bebas Neue", sans-serif; 
-  font-size: 4.5rem; line-height: 0.95; 
-  color: var(--cream); 
-  text-transform: uppercase; 
-  margin-bottom: 2rem; 
-  max-width: 800px;
+/* HIGH-FIDELITY ATMOSPHERICS */
+.s-waitlist::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 10%, rgba(200, 255, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.wl-sub { 
-  font-family: "Barlow", sans-serif; 
-  font-size: 1.25rem; 
-  color: var(--c50); 
-  margin-bottom: 6rem; 
-}
-
-.wl-layout {
+.wl-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 6rem;
+  position: relative;
+  z-index: 2;
 }
 
-.wl-left {
-  font-family: "DM Mono", monospace;
-  font-size: 0.85rem;
-  line-height: 1.8;
-  color: var(--c80);
+.wl-header-box {
+  position: sticky;
+  top: 10rem;
+  height: fit-content;
+}
+
+.wl-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: .9;
+  letter-spacing: -0.01em;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.wl-sub {
+  font-family: 'Publico Headline', serif;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--c40);
+  font-style: italic;
+  max-width: 400px;
+}
+
+/* FORM STAGE (REFINED SCALE) */
+.wl-form-stage {
+  padding-top: 0;
+}
+
+.wl-protocol {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  padding-top: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
-.wl-right {
+.wl-field {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 2.5rem 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  transition: all 0.6s var(--ease);
   position: relative;
 }
 
-.wl-protocol { display: flex; flex-direction: column; gap: 3rem; }
-
-.wl-field { 
-  opacity: 0.15; 
-  transform: translateY(10px); 
-  transition: all 0.8s cubic-bezier(.16,1,.3,1); 
+.wl-field::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 0; height: 1px;
+  background: var(--lime);
+  transition: width 0.8s var(--ease);
 }
-.wl-field.active { opacity: 1; transform: translateY(0); }
 
-.wl-field label { 
-  display: flex; justify-content: space-between; 
-  font-family: "DM Mono", monospace; font-size: 0.75rem; 
-  letter-spacing: 0.15em; color: var(--c50); 
-  text-transform: uppercase; margin-bottom: 0.75rem; 
+.wl-field:focus-within::after {
+  width: 100%;
 }
-.wl-field label span { color: var(--lime); opacity: 0.5; }
 
-.wl-field input { 
-  width: 100%; background: transparent; border: none; 
-  border-bottom: 1px solid var(--c25); color: var(--cream); 
-  font-family: "Barlow", sans-serif; font-size: 2.2rem; 
-  padding: 0.75rem 0; outline: none; transition: border-color 0.4s; 
+.wl-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--lime);
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
 }
-.wl-field input:focus { border-color: var(--lime); }
 
+.wl-field input {
+  background: transparent;
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  color: #fff;
+  padding: 0;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* BRIGHTER PLACEHOLDERS */
+.wl-field input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
+.wl-field input:focus {
+  outline: none;
+}
+
+/* SUBMIT BUTTON */
 .wl-submit-phase {
-  margin-top: 2rem;
-  animation: fadeIn 0.8s ease forwards;
+  padding-top: 5rem;
 }
 
 .wl-btn-final {
-  background: var(--lime); color: var(--blk);
-  border: none; padding: 1.25rem 3rem;
-  font-family: "DM Mono", monospace; font-size: 0.85rem;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  cursor: pointer; transition: all 0.3s;
-  margin-bottom: 2rem;
+  background: var(--lime);
+  color: #000;
+  border: none;
+  padding: 2rem 5rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.4s var(--ease);
+  width: auto;
+  min-width: 400px;
 }
-.wl-btn-final:hover { transform: scale(1.05); background: #fff; }
 
-.wl-meta {
-  font-family: "DM Mono", monospace; font-size: 0.7rem; line-height: 1.6;
-  color: var(--c50); letter-spacing: 0.1em;
+.wl-btn-final:hover {
+  background: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.wl-micro {
+  margin-top: 2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--c40);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-/* SUCCESS BOX */
 .wl-success-box {
-  background: #111;
-  padding: 4rem;
-  border: 1px solid var(--c10);
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  animation: scaleIn 0.6s cubic-bezier(.16,1,.3,1) forwards;
+  padding: 4rem 0;
 }
 
 .wl-success-box h3 {
-  font-family: "Bebas Neue", sans-serif; font-size: 3rem; color: var(--cream);
-  margin: 1.5rem 0 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: var(--lime);
+  margin-bottom: 1.5rem;
 }
 
 .wl-success-box p {
-  font-family: "DM Mono", monospace; font-size: 0.85rem; color: var(--c80);
-  max-width: 400px; line-height: 1.8;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-family: 'Publico Headline', serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #fff;
+  font-style: italic;
 }
 
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@media(max-width:1100px){
-  .wl-layout { grid-template-columns: 1fr; gap: 4rem; }
-  .wl-header { font-size: 3.5rem; }
-  .wl-left { order: 2; }
-  .wl-right { order: 1; }
-}
-
-@media(max-width:600px){
-  .s-waitlist { padding: 6rem 1.6rem; }
-  .wl-header { font-size: 2.8rem; }
-  .wl-field input { font-size: 1.8rem; }
+@media (max-width: 1000px) {
+  .wl-container { grid-template-columns: 1fr; gap: 4rem; }
+  .wl-header-box { position: relative; top: 0; }
+  .wl-field input { font-size: 2.2rem; }
+  .wl-btn-final { width: 100%; min-width: 0; }
 }

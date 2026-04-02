@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Publico Headline';
+  src: url('/Publico Headline Web Bold Regular.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -25,11 +33,11 @@ body {
   padding: 0;
   background: var(--blk);
   color: var(--cream);
-  font-family: "DM Mono", monospace;
+  font-family: 'Publico Headline', Georgia, serif;
   cursor: none;
   width: 100%;
   position: relative;
-  overflow: visible; /* Ensure body doesn't trigger its own scrollbar */
+  overflow: visible;
 }
 
 /* ── CURSOR ──────────────────── */

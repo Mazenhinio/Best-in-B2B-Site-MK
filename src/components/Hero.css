@@ -1,7 +1,10 @@
 /* ── HERO ────────────────────── */
 .hero {
-  position: relative; height: 100vh; overflow: hidden;
+  position: relative; 
+  min-height: 100vh; 
+  overflow: hidden;
   background: var(--blk);
+  padding-top: 5rem;
 }
 
 /* ── DEPTH LAYERS ────────────── */
@@ -20,20 +23,56 @@
   will-change: transform;
 }
 
-/* FAR LAYER — behind mic */
-.w-shaping { font-size: clamp(5rem, 12vw, 17rem); left: 8%; top: 34%; transform: rotate(-3deg); color: var(--cream); opacity: 1; }
-.w-dallas  { font-size: clamp(6rem, 14vw, 20rem); left: 52%; top: 40%; transform: rotate(2deg);  color: var(--cream); opacity: 1; }
-.w-are     { font-size: clamp(3.5rem, 8vw, 12rem); right: 2%; top: 50%; color: var(--cream); opacity: 0.5; }
+/* LINE 1: THE EXECUTIVES DEFINING */
+.w-the { 
+  font-size: clamp(3rem, 6vw, 8rem); 
+  left: 6%; top: 12%; 
+  color: var(--c40); 
+}
+.w-exec { 
+  font-size: clamp(4.5rem, 10vw, 14rem); 
+  left: 14%; top: 18%; 
+  transform: rotate(-2deg); 
+}
+.w-def { 
+  font-size: clamp(3.5rem, 8vw, 11rem); 
+  left: 55%; top: 10%; 
+  color: var(--c60); 
+}
 
-/* NEAR LAYER — in front of mic */
-.w-the     { font-size: clamp(3rem, 8vw, 12rem); left: 4%; top: 12%; color: var(--cream); opacity: 0.5; }
-.w-b2b     { font-size: clamp(6rem, 16vw, 22rem); left: 24%; top: 4%; color: var(--cream); opacity: 1; }
-.w-leaders { font-size: clamp(4.5rem, 11vw, 15rem); right: 4%; top: 16%; color: var(--cream); opacity: 1; }
-.w-being   { font-size: clamp(4rem, 9vw, 13rem); left: 8%; top: 62%; }
+/* LINE 2: B2B IN DALLAS */
+.w-b2b { 
+  font-size: clamp(6rem, 16vw, 22rem); 
+  left: 10%; top: 38%; 
+  z-index: 5;
+}
+.w-in { 
+  font-size: clamp(3rem, 7vw, 10rem); 
+  left: 36%; top: 48%; 
+  color: var(--c40); 
+}
+.w-dallas { 
+  font-size: clamp(6rem, 14vw, 20rem); 
+  left: 55%; top: 32%; 
+  transform: rotate(2deg); 
+}
+
+/* LINE 3: ARE BEING DOCUMENTED. */
+.w-are { 
+  font-size: clamp(3.5rem, 8vw, 12rem); 
+  left: 12%; bottom: 24%; 
+  color: var(--c40); 
+}
+.w-being { 
+  font-size: clamp(4rem, 9vw, 13rem); 
+  right: 18%; bottom: 22%; 
+  color: var(--c60); 
+}
 .w-doc {
-  font-size: clamp(5rem, 12vw, 17rem);
-  left: 50%; bottom: 8%;
+  font-size: clamp(6rem, 14vw, 20rem);
+  left: 50%; bottom: 6%;
   transform: translateX(-50%);
+  color: var(--all-lime);
   color: var(--lime);
 }
 
@@ -61,193 +100,139 @@
   to { opacity: 1; transform: translate(-50%, -52%); }
 }
 
-/* ── STATUS GROUP ────────────── */
-.hero-status-group {
-  position: absolute; top: 6rem; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
-  z-index: 11;
-  text-align: center;
+/* ── CORNER UI ARCHITECTURE ──── */
+.hero-corner-ui {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  animation: fi 1s ease forwards 2.5s;
 }
 
-/* ── EYEBROW ─────────────────── */
-.eyebrow {
-  font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--lime); white-space: nowrap;
-  opacity: 0; animation: ebIn 1.8s cubic-bezier(.16,1,.3,1) forwards .4s;
+/* UI LEFT: SEAT TRACKER */
+.seat-ui-corner {
+  text-align: left;
 }
 
-@keyframes ebIn {
-  from { opacity: 0; letter-spacing: .1em; }
-  to { opacity: 1; letter-spacing: .35em; }
+.suc-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--c40);
+  margin-bottom: 0.8rem;
 }
 
-/* ── REC ─────────────────────── */
-.rec {
-  position: absolute; top: 5.6rem; right: 3.2rem; z-index: 11;
-  display: flex; align-items: center; gap: .6rem;
-  font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
-  color: var(--lime);
-  opacity: 0; animation: fi .8s ease forwards 2s;
-}
-
-.recdot {
-  width: 8px; height: 8px; border-radius: 50%; background: var(--lime);
-  animation: pulse 1.6s ease-in-out infinite;
-}
-
-/* ── SEAT UI ─────────────────── */
-.seat-ui {
-  opacity: 0; animation: fi .8s ease forwards 2.1s;
-  display: flex; flex-direction: column; align-items: center;
-}
-
-.seat-num {
+.suc-num {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 2.2rem; letter-spacing: .08em; color: var(--cream); line-height: 1;
+  font-size: 4.8rem;
+  line-height: .8;
+  color: #fff;
+  letter-spacing: 0.05em;
 }
 
-.seat-lbl {
-  font-size: .38rem; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--c50); margin-top: .1rem;
+.suc-num span {
+  color: var(--c25);
+  font-size: 2.2rem;
 }
 
-.seat-dots { display: flex; gap: 6px; margin-top: .4rem; }
+.suc-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 1.2rem;
+}
+
 .sd { 
-  width: 7px; height: 7px; border-radius: 50%; 
+  width: 8px; height: 8px; border-radius: 50%; 
   border: 1px solid var(--c25); 
-  transition: all 0.3s cubic-bezier(.16,1,.3,1);
-  will-change: transform, background;
+  transition: all 0.5s cubic-bezier(.16,1,.3,1);
 }
 
 .sd.on { 
   background: var(--lime); 
   border-color: var(--lime); 
-  box-shadow: 0 0 12px var(--lime); 
-  animation: sdPop 0.5s cubic-bezier(.16,1,.3,1) forwards;
+  box-shadow: 0 0 10px var(--lime); 
 }
 
-.sd.pnd { 
-  background: rgba(212,255,0,0.15); 
-  border-color: rgba(212,255,0,0.4); 
-  animation: sdPulse 0.8s infinite alternate ease-in-out;
+/* UI RIGHT: STATUS MARKER */
+.status-marker-corner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-@keyframes sdPop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.6); filter: brightness(1.5); }
-  100% { transform: scale(1); }
-}
-
-@keyframes sdPulse {
-  0% { opacity: 0.3; transform: scale(0.9); }
-  100% { opacity: 0.9; transform: scale(1.1); }
-}
-
-
-/* ── BOTTOM FOOT ─────────────── */
-.hero-foot {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 11;
-  display: flex; align-items: flex-end; justify-content: space-between;
-  padding: 0 3.2rem 2.6rem;
-  opacity: 0; animation: ri .9s ease forwards 2s;
-}
-
-.hero-sub {
-  font-family: "Barlow", sans-serif; font-weight: 300;
-  font-size: clamp(.8rem, .88vw, .95rem);
-  line-height: 1.84; color: var(--c80); max-width: 370px;
-}
-
-.hero-cta {
-  text-decoration: none; color: var(--blk);
+.smc-pulse {
+  width: 15px; height: 15px; border-radius: 50%;
   background: var(--lime);
-  padding: 0.8rem 1.8rem;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase;
-  display: inline-flex; align-items: center; gap: 0.8rem;
-  position: relative;
-  transition: all 0.4s cubic-bezier(.16,1,.3,1);
-  box-shadow: 0 0 20px rgba(212, 255, 0, 0.15);
+  box-shadow: 0 0 15px var(--lime);
+  animation: pulseLarge 2s ease-in-out infinite;
 }
 
-.hero-cta:hover { 
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(212, 255, 0, 0.3);
-  background: var(--cream);
+.smc-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: right;
 }
 
-.arr { display: inline-block; transition: transform .45s cubic-bezier(.16,1,.3,1); }
-.hero-cta:hover .arr { transform: translateX(8px); }
-
-/* Bottom vignette */
-.hero-vign {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 30%;
-  background: linear-gradient(to bottom, transparent, var(--blk));
-  z-index: 9; pointer-events: none;
+.smc-text span {
+  color: var(--lime);
+  opacity: 0.8;
 }
 
-/* Top vignette */
-.hero-vign-top {
-  position: absolute; top: 0; left: 0; right: 0; height: 25%;
-  background: linear-gradient(to top, transparent, rgba(5,4,10,.6));
-  z-index: 9; pointer-events: none;
+/* ── REC ─────────────────────── */
+.rec {
+  position: absolute; top: 9.5rem; right: 5.5rem; z-index: 1001;
+  display: flex; align-items: center; gap: .8rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem; 
+  letter-spacing: 0.15em; 
+  text-transform: uppercase;
+  color: var(--lime);
+  opacity: 0; animation: fi .8s ease forwards 2s;
+}
+
+.recdot {
+  width: 12px; height: 12px; border-radius: 50%; background: var(--lime);
+  animation: pulsePulse 1.6s ease-in-out infinite;
+  box-shadow: 0 0 15px var(--lime);
 }
 
 /* ── KEYFRAMES ───────────────── */
 @keyframes fi { from { opacity: 0; } to { opacity: 1; } }
-@keyframes ri { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .12; transform: scale(.45); } }
+@keyframes pulseLarge {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.4; }
+}
+@keyframes pulsePulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .12; transform: scale(.4); } }
 
-/* ── RESPONSIVE ──────────────── */
-@media(max-width:1050px){
-  .w-shaping { left: 4%; top: 35%; }
-  .w-dallas { left: 45%; top: 42%; }
+/* ── VIGNETTES ───────────────── */
+.hero-vign {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+  background: linear-gradient(to bottom, transparent, #000);
+  z-index: 9;
 }
 
-@media(max-width:900px){
-  .seat-ui { display: none; }
-  .nright { display: none; }
-  
-  .w-the { font-size: clamp(4rem, 13vw, 8rem); left: 3%; top: 6%; } 
-  .w-b2b { font-size: clamp(7rem, 24vw, 14rem); left: 24%; top: 3%; }
-  .w-leaders { font-size: clamp(5rem, 16vw, 10rem); right: 3%; top: 14%; }
-  
-  .w-shaping { font-size: clamp(6rem, 18vw, 12rem); left: 4%; top: 35%; } 
-  .w-dallas { font-size: clamp(6.5rem, 22vw, 14rem); left: 50%; top: 46%; transform: translateX(-50%); }
-  .w-are { font-size: clamp(3rem, 10vw, 7rem); right: 2%; top: 58%; }
-  .w-being { font-size: clamp(4rem, 14vw, 9rem); left: 5%; top: 68%; }
-  
-  .w-doc { font-size: clamp(5rem, 18vw, 14rem); left: 50%; bottom: 16%; transform: translateX(-50%); }
-  
-  .mic-wrap { width: clamp(280px, 60vmin, 600px); height: clamp(280px, 60vmin, 600px); }
-  
-  .hero-foot { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 0 1.6rem 2rem; }
-  .eyebrow { top: 4.5rem; font-size: 0.65rem; }
-  .rec { top: 4.2rem; right: 1.6rem; }
+.hero-vign-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 35%;
+  background: linear-gradient(to top, transparent, rgba(0,0,0,0.8));
+  z-index: 9;
 }
 
-@media(max-width:600px){
-  nav { padding: 1.2rem 1.4rem; }
-  .eyebrow { font-size: .5rem; top: 4rem; white-space: normal; text-align: center; width: 80%; line-height: 1.4; }
-  .rec { top: 4rem; right: 1.4rem; font-size: 0.6rem; }
+@media(max-width:1100px){
+  .hero-corner-ui { padding: 3rem 2rem; }
+  .suc-num { font-size: 2.5rem; }
+  .smc-text { font-size: 0.6rem; }
+}
 
-  /* Scale mic down for small screens */
-  .mic-wrap { width: clamp(220px, 72vmin, 400px); height: clamp(220px, 72vmin, 400px); }
-
-  /* Carefully reposition words so they don’t pile on each other */
-  .w-the     { font-size: 14vw; left: 4%; top: 8%; }
-  .w-b2b     { font-size: 26vw; left: 22%; top: 5%; }
-  .w-leaders { font-size: 11vw; right: 4%; top: 18%; }
-
-  .w-shaping { font-size: 18vw; left: 4%; top: 36%; transform: rotate(-2deg); }
-  .w-dallas  { font-size: 18vw; left: 50%; top: 48%; transform: translateX(-50%); }
-  .w-are     { font-size: 10vw; right: 4%; top: 60%; }
-  .w-being   { font-size: 14vw; left: 5%; top: 68%; }
-  .w-doc     { font-size: 15vw; bottom: 18%; }
-
-  /* Bottom foot stacks cleanly */
-  .hero-foot { flex-direction: column; align-items: flex-start; gap: 1.2rem; padding: 0 1.4rem 2rem; }
-  .hero-sub  { font-size: 0.8rem; max-width: 100%; }
-  .hero-cta  { width: 100%; justify-content: center; font-size: 1rem; padding: 0.75rem 1rem; }
+@media(max-width:768px){
+  .hero-corner-ui { flex-direction: column; align-items: flex-start; gap: 3rem; }
+  .rec { display: none; }
 }

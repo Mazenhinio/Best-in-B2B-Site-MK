@@ -4,10 +4,15 @@ import './Nav.css';
 const Nav = () => {
   return (
     <nav>
-      <div className="nlogo">Best in <em>B2B</em></div>
-      <div className="nright">
+      <div className="nlogo">
+        <img src="/Logo shield only.png" alt="Shield" className="nav-logo-shield" />
+      </div>
+      <div className="ncenter">
         <div className="npulse"></div>
-        Season One is underway. The waitlist is open.
+        SEASON ONE · DALLAS – FORT WORTH · LIMITED TO TWELVE
+      </div>
+      <div className="nright">
+        <a href="#request" className="ncta">Request Consideration →</a>
       </div>
     </nav>
   );

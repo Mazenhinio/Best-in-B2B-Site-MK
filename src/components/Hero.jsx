@@ -18,13 +18,14 @@ const Hero = () => {
     // 1. Word Reveals (keep existing)
     const seq = [
       {id:"wthe",     delay:680,  op: 0.45},
-      {id:"wb2b",     delay:860,  op: 1},
-      {id:"wleaders", delay:980,  op: 1},
-      {id:"wshaping", delay:1080, op: 1},
-      {id:"wdallas",  delay:1220, op: 1},
-      {id:"ware",     delay:1340, op: 0.45},
-      {id:"wbeing",   delay:1480, op: 0.45},
-      {id:"wdoc",     delay:1620, op: 1}
+      {id:"wexec",    delay:800,  op: 1},
+      {id:"wdef",     delay:920,  op: 1},
+      {id:"wb2b",     delay:1040, op: 1},
+      {id:"win",      delay:1160, op: 0.45},
+      {id:"wdallas",  delay:1280, op: 1},
+      {id:"ware",     delay:1400, op: 0.45},
+      {id:"wbeing",   delay:1520, op: 0.45},
+      {id:"wdoc",     delay:1640, op: 1}
     ];
 
     const wordTimeouts = seq.map((s) => {
@@ -97,9 +98,9 @@ const Hero = () => {
     <section className="hero" id="hero">
       {/* FAR LAYER: behind mic */}
       <div className="dl dl-far" ref={dlFarRef}>
-        <span className="dw w-shaping" ref={registerWord('wshaping')}>SHAPING</span>
+        <span className="dw w-exec" ref={registerWord('wexec')}>EXECUTIVES</span>
         <span className="dw w-dallas" ref={registerWord('wdallas')}>DALLAS</span>
-        <span className="dw w-are" ref={registerWord('ware')}>ARE</span>
+        <span className="dw w-being" ref={registerWord('wbeing')}>BEING</span>
       </div>
 
       {/* MIC LAYER */}
@@ -112,25 +113,36 @@ const Hero = () => {
       {/* NEAR LAYER */}
       <div className="dl dl-near" ref={dlNearRef}>
         <span className="dw w-the" ref={registerWord('wthe')}>THE</span>
+        <span className="dw w-def" ref={registerWord('wdef')}>DEFINING</span>
         <span className="dw w-b2b" ref={registerWord('wb2b')}>B2B</span>
-        <span className="dw w-leaders" ref={registerWord('wleaders')}>LEADERS</span>
-        <span className="dw w-being" ref={registerWord('wbeing')}>BEING</span>
+        <span className="dw w-in" ref={registerWord('win')}>IN</span>
+        <span className="dw w-are" ref={registerWord('ware')}>ARE</span>
         <span className="dw w-doc" ref={registerWord('wdoc')}>DOCUMENTED.</span>
       </div>
 
-      <div className="hero-status-group">
-        <div className="eyebrow">DALLAS – FORT WORTH · SEASON ONE · LIMITED TO TWELVE</div>
-        
-        <div className="seat-ui">
-          <div className="seat-num">{String(seatCount).padStart(2, '0')}<span style={{ color: 'var(--c25)' }}>/12</span></div>
-          <div className="seat-lbl">Seats filled</div>
-          <div className="seat-dots">
-            {[...Array(12)].map((_, i) => (
-              <div 
-                key={i} 
-                className={`sd ${i < seatCount ? 'on' : ''} ${i >= seatCount && i < seatCount + 2 ? 'pnd' : ''}`}
-              ></div>
-            ))}
+      <div className="hero-corner-ui">
+        <div className="ui-left">
+          <div className="seat-ui-corner">
+            <div className="suc-lbl">SEATS FILLED</div>
+            <div className="suc-num">{String(seatCount).padStart(2, '0')}<span style={{ color: 'var(--c25)' }}>/12</span></div>
+            <div className="suc-dots">
+              {[...Array(12)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className={`sd ${i < seatCount ? 'on' : ''}`}
+                ></div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="ui-right">
+          <div className="status-marker-corner">
+            <div className="smc-pulse"></div>
+            <div className="smc-text">
+              SEASON ONE IS UNDERWAY <br/>
+              <span>THE WAITLIST IS OPEN</span>
+            </div>
           </div>
         </div>
       </div>
@@ -140,17 +152,6 @@ const Hero = () => {
       </div>
 
 
-      {/* BOTTOM FOOT */}
-      <div className="hero-foot">
-        <div className="hero-sub">
-          Best in B2B is the definitive video series featuring the executives behind the region's most consequential B2B companies. Participation is by invitation only.
-          <br /><br />
-          <i>Season One is underway. The waitlist is open.</i>
-        </div>
-        <a href="#request" className="hero-cta">
-          Request consideration <span className="arr">→</span>
-        </a>
-      </div>
 
       <div className="hero-vign"></div>
       <div className="hero-vign-top"></div>

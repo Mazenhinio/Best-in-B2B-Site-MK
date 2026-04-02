@@ -1,40 +1,77 @@
-.s-market { padding: 8rem 3.2rem; max-width: 1200px; margin: 0 auto; }
-
-.sm-eyebrow {
-  display: flex; align-items: center; gap: 1.2rem;
-  font-family: "DM Mono", monospace; font-size: 0.7rem; color: var(--lime);
-  letter-spacing: 0.3em; margin-bottom: 2.5rem;
-  text-transform: uppercase;
+.s-market {
+  background: var(--blk);
+  color: var(--cream);
+  padding: 10rem 3.2rem;
+  border-top: 1px solid var(--c05);
 }
-.eb-line { width: 30px; height: 1px; background: var(--lime); }
 
-.sm-headline { 
+.market-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.s-market h2 {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 4rem;
-  line-height: 0.9;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: .9;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  color: var(--cream);
+  max-width: 800px;
+}
+
+.market-sub {
+  font-family: 'Publico Headline', serif;
+  font-size: 1.25rem;
+  color: var(--c80);
+  margin-bottom: 6rem;
+  font-style: italic;
+}
+
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.market-stat {
+  border-left: 2px solid var(--lime);
+  padding-left: 2rem;
+}
+
+.stat-head {
+  display: flex;
+  align-items: baseline; 
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* allow long labels to flow naturally */
+}
+
+.stat-num {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  color: var(--lime);
+  line-height: .9;
+}
+
+.stat-label {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  color: var(--lime);
+  line-height: .9;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
-  margin-bottom: 3.5rem; 
 }
 
-.sm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 5rem; }
-.sm-item { padding-left: 1.5rem; border-left: 2px solid var(--lime); }
-.sm-stat { font-family: "Bebas Neue", sans-serif; font-size: 5rem; line-height: 1; color: var(--lime); margin-bottom: 1rem; }
-.sm-lbl { font-family: "DM Mono", monospace; font-size: 0.85rem; line-height: 1.5; color: var(--c80); letter-spacing: 0.05em; text-transform: uppercase; }
-.sm-thesis { font-family: "Barlow", sans-serif; font-weight: 300; font-size: 1.25rem; line-height: 1.6; color: var(--cream); border-top: 1px solid var(--c25); padding-top: 2rem; }
-
-@media(max-width:900px){
-  .s-market { padding: 5rem 1.6rem; }
-  .sm-headline { font-size: 3rem; margin-bottom: 2.5rem; }
-  .sm-grid { grid-template-columns: 1fr; gap: 3rem; margin-bottom: 3rem; }
-  .sm-stat { font-size: 4rem; }
+.market-stat p {
+  font-family: 'Publico Headline', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--c80);
+  font-weight: 300;
 }
 
-@media(max-width:600px){
-  .s-market { padding: 4rem 1.2rem; }
-  .sm-label { font-size: 0.7rem; }
-  .sm-headline { font-size: 2.5rem; margin-bottom: 2.5rem; }
-  .sm-grid { gap: 2.5rem; margin-bottom: 2rem; }
-  .sm-stat { font-size: 3.2rem; }
-  .sm-lbl { font-size: 0.78rem; }
-  .sm-thesis { font-size: 1rem; padding-top: 1.5rem; }
+@media(max-width: 1024px) {
+  .market-grid { grid-template-columns: 1fr; gap: 4rem; }
+  .s-market { padding: 6rem 1.6rem; }
 }

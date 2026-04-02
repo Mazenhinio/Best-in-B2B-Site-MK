@@ -1,0 +1,159 @@
+.s-launching {
+  background: var(--blk);
+  padding: 12rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--c05);
+}
+
+.s-launching::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 140vw; height: 140vh;
+  background: radial-gradient(circle at center, rgba(212, 255, 0, 0.05) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  animation: pulse-glow 8s ease-in-out infinite alternate;
+}
+
+.s-launching::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+  animation: grain-shift 1s steps(2) infinite;
+  z-index: 2;
+}
+
+@keyframes pulse-glow {
+  0% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes grain-shift {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(-10px,-10px); }
+}
+
+.launch-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.launch-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  color: var(--lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.launch-eyebrow .line {
+  width: 40px;
+  height: 1px;
+  background: var(--c25);
+}
+
+.launch-title {
+  font-family: 'Publico Headline', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--cream);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.launch-title i {
+  color: var(--lime);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.launch-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--c40);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+}
+
+.platform-grid {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.platform-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.p-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c40);
+  transition: all 0.6s var(--ease);
+  position: relative;
+  z-index: 5;
+}
+
+.p-icon img, .p-icon svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.55);
+  transition: all 0.6s var(--ease);
+}
+
+.p-icon img {
+  transform: scale(1.35); /* Compensate for internal padding in Apple logo */
+}
+
+.platform-item:hover .p-icon img {
+  filter: grayscale(0%) opacity(1);
+}
+
+.platform-item:hover .p-icon svg {
+  color: var(--lime);
+  filter: grayscale(0%) opacity(1);
+}
+
+.platform-item span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
+  color: var(--c60);
+  transition: all 0.6s var(--ease);
+  font-weight: 500;
+}
+
+.platform-item:hover .p-icon {
+  color: var(--lime);
+  transform: translateY(-8px);
+}
+
+.platform-item:hover span {
+  color: var(--lime);
+}
+
+@media (max-width: 768px) {
+  .platform-grid {
+    gap: 2rem;
+  }
+}

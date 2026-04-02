@@ -5,43 +5,37 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import TheSeries from './components/TheSeries';
 import MarketContext from './components/MarketContext';
-import TheFormat from './components/TheFormat';
 import Criteria from './components/Criteria';
 import WaitlistForm from './components/WaitlistForm';
 import FAQ from './components/FAQ';
 import FooterCTA from './components/FooterCTA';
-import VideoLoader from './components/VideoLoader';
 import Marquee from './components/Marquee';
 import VideoShowcase from './components/VideoShowcase';
+import WhyThisSeatMatters from './components/WhyThisSeatMatters';
+import Deliverables from './components/Deliverables';
+import SeriesAbout from './components/SeriesAbout';
+import Launching from './components/Launching';
 
 function App() {
-  const [hasEntered, setHasEntered] = useState(false);
-
   return (
-    <>
+    <div className="app-container">
       <Cursor />
-      
-      {!hasEntered && <VideoLoader onComplete={() => setHasEntered(true)} />}
-
-      {hasEntered && (
-        <div style={{ animation: 'fi 1s ease forwards' }}>
-          <Nav />
-          <Hero />
-          <Marquee />
-          <TheSeries />
-          <MarketContext />
-          <TheFormat />
-          <VideoShowcase />
-          <Criteria />
-          <WaitlistForm />
-          <FAQ />
-          <FooterCTA />
-        </div>
-      )}
-    </>
+      <Nav />
+      <div className="main-content">
+        <Hero />
+        <Marquee />
+        <SeriesAbout />
+        <Launching />
+        <TheSeries />
+        <MarketContext />
+        <WhyThisSeatMatters />
+        <Deliverables />
+        <Criteria />
+        <WaitlistForm />
+        <FAQ />
+        <FooterCTA />
+      </div>
+    </div>
   );
 }
-
 export default App;
-
-

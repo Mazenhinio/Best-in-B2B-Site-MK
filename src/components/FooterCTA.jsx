@@ -1,44 +1,26 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './FooterCTA.css';
 
 const FooterCTA = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px', threshold: 0.15 });
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => sectionRef.current && observer.unobserve(sectionRef.current);
-  }, []);
-
   return (
-    <section ref={sectionRef} className={`s-end reveal ${isVisible ? 'active' : ''}`}>
-      <div className="cta-head">Twelve leaders. One record. Dallas-Fort Worth.</div>
-      <div className="cta-sub" style={{fontStyle: 'italic', marginBottom: '2rem', color: 'var(--c80)'}}>The room is being set. The question is whether your name is in it.</div>
-      <a href="#request" className="hero-cta">
-        Request Consideration <span className="arr">→</span>
-      </a>
-      <div className="cta-micro" style={{fontSize: '0.8rem', marginTop: '1rem', color: 'var(--c50)'}}>Reviewed personally · 72-hour response · DFW only</div>
-      <div className="foot-wrap" style={{marginTop: '6rem'}}>
-        <div className="foot-copy">Best in B2B</div>
-        <div className="foot-links">
-          <span>Dallas-Fort Worth</span>
-          <span>·</span>
-          <span>Season One</span>
-          <span>·</span>
-          <span>b2bbest.show</span>
-        </div>
-        <div className="foot-copy">© 2026 EXL Ventures LLC</div>
+    <footer className="s-footer">
+      <div className="footer-cta-container">
+        <h2>Twelve leaders. One season. <i>One city.</i></h2>
       </div>
-    </section>
+      
+      <div className="footer-legal">
+        <div className="footer-brand">
+          <img src="/Logo.png" alt="Best in B2B Logo" className="f-logo" />
+        </div>
+        <div className="footer-copy">© 2026 Best in B2B Leadership Series. Curated by DFW.</div>
+        <div className="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Executive Contact</a>
+          <a href="#">Media Kit</a>
+        </div>
+      </div>
+    </footer>
   );
 };
 
