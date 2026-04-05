@@ -45,17 +45,17 @@ const TheSeries = () => {
         
         <div className="script-layout">
           <div className="script-para roll-item" ref={addToRefs}>
-            <p className="leadin-text">Standard media captures the moment. We capture the <span className="mark-hl">strategy</span>. Best in B2B is an <span className="mark-hl">archival project</span> documenting the <span className="mark-hl">heavy-hitters</span> who move the needle in the North Texas B2B ecosystem.</p>
+            <p className="leadin-text">Standard media reacts to what happened yesterday. We capture how you are <span className="mark-hl">building tomorrow</span>. Best in B2B is a production documenting the <span className="mark-hl">strategy and foresight</span> of the heavy-hitters actively scaling the North Texas ecosystem. This is about the <span className="mark-hl">frameworks</span> you are deploying right now and the high-fidelity proof that you aren't just observing the change—you are <span className="mark-hl">driving it</span>.</p>
           </div>
 
           <div className="script-para roll-item" ref={addToRefs}>
-            <p>We don't do remote calls. We don't do audio-only. We bring a <span className="mark-hl">cinema-grade crew</span> to <span className="mark-hl">your office</span> or a curated studio to record the <span className="mark-hl">legacy</span> of your leadership.</p>
+            <p>We don't do remote calls or audio-only shortcuts. We bring a <span className="mark-hl">cinema-grade crew</span> to your office or a curated studio to showcase the <span className="mark-hl">authority and momentum</span> of your leadership in real-time. We record the <span className="mark-hl">market shifts</span> you see coming, establishing your record as a <span className="mark-hl">permanent position</span> in the B2B community.</p>
           </div>
         </div>
 
         <div className="quote-wrap roll-item" ref={addToRefs}>
           <blockquote className="quote-main">
-            "The most valuable B2B insights aren't shared on LinkedIn threads. They are shared in the quiet moments between the people actually doing the work."
+            "The B2B leaders who win the next five years are the ones currently documenting their vision. Credibility in this market is built on record, not on rumors."
           </blockquote>
           <cite className="quote-cite">— Series Curator, Leadership Council, DFW</cite>
         </div>

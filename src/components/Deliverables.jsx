@@ -71,6 +71,109 @@ const Deliverables = () => {
     }
   ];
 
+  const renderPanel = (index) => {
+    switch(index) {
+      case 0:
+        return (
+          <div className="panel-wrapper">
+            <div className="yt-mockup">
+              <div className="yt-player-frame">
+                <img src="/YT Video Thumbnail.png" alt="YouTube Thumbnail" className="yt-thumb-img" />
+                <div className="yt-play-btn"></div>
+                <div className="yt-progress"></div>
+              </div>
+              <div className="yt-meta">
+                <div className="yt-title-bar"></div>
+                <div className="yt-subtitle-bar"></div>
+              </div>
+            </div>
+            <div className="platform-row">
+              <div className="plat-icon yt"></div>
+              <div className="plat-icon spot"></div>
+              <div className="plat-icon apple"></div>
+              <div className="plat-icon li"></div>
+            </div>
+          </div>
+        );
+      case 1:
+        return (
+          <div className="reel-frame">
+            <video autoPlay muted loop playsInline src="/business-man-mic-and-podcast-recording-for-talk-2026-01-22-21-51-12-utc.mp4" />
+            <div className="reel-captions">"The most valuable B2B insights aren't shared on LinkedIn threads..."</div>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="guest-cards-stack">
+            <div className="guest-card state-pre">
+              <img src="/Guest Card 1.png" alt="Pre" />
+              <div className="card-overlay">COMING TO BEST IN B2B</div>
+            </div>
+            <div className="guest-card state-post">
+              <img src="/Guest Card 2.png" alt="Post" />
+              <div className="card-overlay">WATCH THE FULL EPISODE</div>
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="quote-graphic-mock">
+            <div className="quote-bg">
+              <img src="/Top down shot of executives.png" alt="Quote" />
+            </div>
+            <div className="quote-text-overlay">
+              <span className="quote-mark">“</span>
+              <p>Scale isn't a feature of your product. It's a feature of your <i>operating model</i>.</p>
+              <cite>— Season 1 Executive</cite>
+            </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="caption-mock">
+            <div className="calendar-ui">
+              <div className="cal-day">DISTRIBUTION KIT // MON 09:00 AM</div>
+              <div className="cal-post">
+                <div className="cal-thumb">
+                  <img src="/Caption Set Image.png" alt="Clip" />
+                </div>
+                <div className="cal-copy">
+                  <p className="cal-text">
+                    "The landscape of B2B leadership in DFW is shifting. It’s no longer about who speaks the loudest, but who has the most substance on record.<br/><br/>
+                    Honored to be part of Season One of Best in B2B. We’re diving deep into the frameworks that actually scale."
+                  </p>
+                  <div className="cal-tags">#BestInB2B #DFWBusiness #B2BLeadership</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      case 5:
+        return (
+          <div className="feature-profile-card">
+            <div className="profile-header">
+              <img src="/Guest Feature Asset.png" alt="Guest" />
+              <div className="profile-title">
+                <h4>MARCUS JENKINS</h4>
+                <span>CHO AT ENTERPRISE DFW</span>
+              </div>
+            </div>
+            <div className="profile-body">
+              <p className="profile-pull-quote">
+                "Real B2B leverage happens when you stop selling tools and start <i>selling certainty</i>."
+              </p>
+              <div className="profile-issue-meta">
+                <span>SEASON ONE EP. 04</span>
+                <span>BEST IN B2B DALLAS</span>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <section className="s-deliverables" id="deliverables">
       <div className="del-sticky-grid">
@@ -97,134 +200,42 @@ const Deliverables = () => {
               <div className="del-tag-cloud">
                 {item.tags.map(tag => <span key={tag} className="del-tag">{tag}</span>)}
               </div>
+
+              {/* MOBILE ONLY VISUAL */}
+              <div className="del-mobile-visual">
+                {renderPanel(i)}
+              </div>
             </div>
           ))}
-          
-          <div className="del-spacer-bottom"></div>
+          <div className="del-spacer-bottom desktop-only"></div>
         </div>
 
-        {/* RIGHT STICKY STAGE */}
+        {/* RIGHT STICKY STAGE (DESKTOP) */}
         <div className="del-right-stage">
           <div className="del-sticky-container">
-            
-            {/* PANEL 1: FULL EPISODE */}
-            <div className={`del-panel ${activeIndex === 0 ? 'active' : ''}`}>
-              <div className="yt-mockup">
-                <div className="yt-player-frame">
-                   <img src="/YT Video Thumbnail.png" alt="YouTube Thumbnail" className="yt-thumb-img" />
-                   <div className="yt-play-btn"></div>
-                   <div className="yt-progress"></div>
-                </div>
-                <div className="yt-meta">
-                  <div className="yt-title-bar"></div>
-                  <div className="yt-subtitle-bar"></div>
+            {deliverables.map((_, i) => (
+              <div key={i} className={`del-panel ${activeIndex === i ? 'active' : ''}`}>
+                {renderPanel(i)}
+                <div className="panel-label">
+                  {i === 0 && "REPRESENTATIVE MOCKUP // FULL MASTER"}
+                  {i === 1 && "UP TO 6 CLIPS // SOCIAL READY"}
+                  {i === 2 && "PRE-EPISODE + POST-EPISODE STATES"}
+                  {i === 3 && "EDITORIAL QUOTE ASSET"}
+                  {i === 4 && "READY-TO-PUBLISH COPY KIT"}
+                  {i === 5 && "INTERNAL EXECUTIVE PROFILE // D CEO STYLE"}
                 </div>
               </div>
-              <div className="platform-row">
-                 <div className="plat-icon yt"></div>
-                 <div className="plat-icon spot"></div>
-                 <div className="plat-icon apple"></div>
-                 <div className="plat-icon li"></div>
-              </div>
-              <div className="panel-label">REPRESENTATIVE MOCKUP // FULL MASTER</div>
-            </div>
-
-            {/* PANEL 2: SHORTS */}
-            <div className={`del-panel ${activeIndex === 1 ? 'active' : ''}`}>
-               <div className="reel-frame">
-                  <video autoPlay muted loop playsInline src="/business-man-mic-and-podcast-recording-for-talk-2026-01-22-21-51-12-utc.mp4" />
-                  <div className="reel-captions">"The most valuable B2B insights aren't shared on LinkedIn threads..."</div>
-               </div>
-               <div className="panel-label">UP TO 6 CLIPS // SOCIAL READY</div>
-            </div>
-
-            {/* PANEL 3: GUEST CARDS */}
-            <div className={`del-panel ${activeIndex === 2 ? 'active' : ''}`}>
-               <div className="guest-cards-stack">
-                  <div className="guest-card state-pre">
-                     <img src="/Guest Card 1.png" alt="Pre" />
-                     <div className="card-overlay">COMING TO BEST IN B2B</div>
-                  </div>
-                  <div className="guest-card state-post">
-                     <img src="/Guest Card 2.png" alt="Post" />
-                     <div className="card-overlay">WATCH THE FULL EPISODE</div>
-                  </div>
-               </div>
-               <div className="panel-label">PRE-EPISODE + POST-EPISODE STATES</div>
-            </div>
-
-            {/* PANEL 4: QUOTE GRAPHICS */}
-            <div className={`del-panel ${activeIndex === 3 ? 'active' : ''}`}>
-               <div className="quote-graphic-mock">
-                  <div className="quote-bg">
-                    <img src="/Top down shot of executives.png" alt="Quote" />
-                  </div>
-                  <div className="quote-text-overlay">
-                     <span className="quote-mark">“</span>
-                     <p>Scale isn't a feature of your product. It's a feature of your <i>operating model</i>.</p>
-                     <cite>— Season 1 Executive</cite>
-                  </div>
-               </div>
-               <div className="panel-label">EDITORIAL QUOTE ASSET</div>
-            </div>
-
-            {/* PANEL 5: CAPTION SETS */}
-            <div className={`del-panel ${activeIndex === 4 ? 'active' : ''}`}>
-               <div className="caption-mock">
-                  <div className="calendar-ui">
-                     <div className="cal-day">DISTRIBUTION KIT // MON 09:00 AM</div>
-                     <div className="cal-post">
-                        <div className="cal-thumb">
-                           <img src="/Caption Set Image.png" alt="Clip" />
-                        </div>
-                        <div className="cal-copy">
-                           <p className="cal-text">
-                              "The landscape of B2B leadership in DFW is shifting. It’s no longer about who speaks the loudest, but who has the most substance on record.<br/><br/>
-                              Honored to be part of Season One of Best in B2B. We’re diving deep into the frameworks that actually scale."
-                           </p>
-                           <div className="cal-tags">#BestInB2B #DFWBusiness #B2BLeadership</div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div className="panel-label">READY-TO-PUBLISH COPY KIT</div>
-            </div>
-
-            {/* PANEL 6: GUEST FEATURE ASSET */}
-            <div className={`del-panel ${activeIndex === 5 ? 'active' : ''}`}>
-               <div className="feature-profile-card">
-                  <div className="profile-header">
-                     <img src="/Guest Feature Asset.png" alt="Guest" />
-                     <div className="profile-title">
-                        <h4>MARCUS JENKINS</h4>
-                        <span>CHO AT ENTERPRISE DFW</span>
-                     </div>
-                  </div>
-                  <div className="profile-body">
-                     <p className="profile-pull-quote">
-                        "Real B2B leverage happens when you stop selling tools and start <i>selling certainty</i>."
-                     </p>
-                     <div className="profile-issue-meta">
-                        <span>SEASON ONE EP. 04</span>
-                        <span>BEST IN B2B DALLAS</span>
-                     </div>
-                  </div>
-               </div>
-               <div className="panel-label">INTERNAL EXECUTIVE PROFILE // D CEO STYLE</div>
-            </div>
-
+            ))}
           </div>
         </div>
       </div>
-      
-      <div className="del-value-footer">
-        <blockquote className="value-quote">
-          "Independent production value: $10,000 – $15,000. There is no invoice."
-        </blockquote>
-        <cite className="value-cite">— Best in B2B Production Team</cite>
+      <div className="del-perceived-value">
+        <span>ESTIMATED PRODUCTION VALUE: $10,000 – $15,000</span>
+        <span className="value-disclaimer">FORBES-LEVEL ASSET SUITE // NO INVOICE ATTACHED</span>
       </div>
     </section>
   );
 };
 
 export default Deliverables;
+
