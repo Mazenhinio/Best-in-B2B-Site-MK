@@ -42,10 +42,6 @@ const TheSeries = () => {
         <h2 className="roll-item" ref={addToRefs}>
           THIS IS NOT A PODCAST.<br/><i>THIS IS A RECORD.</i>
         </h2>
-
-        <div className="series-subheadline roll-item" ref={addToRefs}>
-          The first corporate video podcast that <i>comes to your office</i>.
-        </div>
         
         <div className="script-layout">
           <div className="script-para roll-item" ref={addToRefs}>

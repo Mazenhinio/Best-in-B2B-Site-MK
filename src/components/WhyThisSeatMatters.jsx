@@ -34,41 +34,73 @@ const WhyThisSeatMatters = () => {
   };
 
   const points = [
-    { icon: icons.aperture, title: "Visibility that compounds", text: "The executives your buyers trust are the ones they have seen and heard. One filmed conversation puts you in that category — permanently." },
-    { icon: icons.compass, title: "Thought leadership drives pipeline", text: "75% of B2B decision-makers research a new product after consuming leadership content. 70% reconsidered an existing supplier after seeing a competitor's." },
-    { icon: icons.rec, title: "Video is the only proof", text: "In a market flooded with AI-generated content, showing up on camera with original thinking is the only signal buyers cannot fake or ignore." },
-    { icon: icons.seal, title: "Your work. On record.", text: "We film on location — your environment, your team, your company in motion. This is a portrait of how you and your organization actually operate." },
-    { icon: icons.lamp, title: "Own your category", text: "Every market has a voice people default to. Best in B2B is where it gets established for DFW's B2B community." },
-    { icon: icons.monolith, title: "Season One is the position", text: "The executives documented now are the permanent record of this series from its beginning. That is a position, not a feature." }
+    { 
+      title: "Visibility That Compounds", 
+      text: "The executives your buyers trust are the ones they have seen and heard. One filmed conversation puts you in that category — permanently.",
+      video: "/Visibility That Compounds.mp4" 
+    },
+    { 
+      title: "Thought Leadership Drives Pipeline", 
+      text: "75% of B2B decision-makers research a new product after consuming leadership content. 70% reconsidered an existing supplier after seeing a competitor's.",
+      video: "/Thought Leadership Drives Pipeline.mp4" 
+    },
+    { 
+      title: "Video Is The Only Proof", 
+      text: "In a market flooded with AI-generated content, showing up on camera with original thinking is the only signal buyers cannot fake or ignore.",
+      video: "/Video Is The Only Proof.mp4" 
+    },
+    { 
+      title: "Your Work. On Record.", 
+      text: "We film on location — your environment, your team, your company in motion. This is a portrait of how you and your organization actually operate.",
+      video: "/Your Work. On Record..mp4" 
+    },
+    { 
+      title: "Own Your Category", 
+      text: "Every market has a voice people default to. Best in B2B is where it gets established for DFW's B2B community.",
+      video: "/Own Your Category.mp4" 
+    },
+    { 
+      title: "Season One Is The Position", 
+      text: "The executives documented now are the permanent record of this series from its beginning. That is a position, not a feature.",
+      video: "/Season One Is The Position.mp4" 
+    }
   ];
 
   return (
     <section className="s-seat" id="why-now">
-      <div className="seat-container">
-      <div className="seat-container">
-        <div className="seat-header reveal" ref={addToRefs}>
-          <div className="editorial-label">03 // THE VALUE</div>
-          <h2>Why This <i>Seat Matters</i></h2>
-          <p className="seat-intro">Your buyers are forming opinions about you right now. You are not in the room.</p>
-        </div>
-
-        <div className="seat-grid">
-          {points.map((p, i) => (
-            <div 
-              key={i} 
-              className="seat-point reveal" 
-              ref={addToRefs}
-              style={{ transitionDelay: `${0.1 + i * 0.12}s` }}
-            >
-              <div className="point-head">
-                <div className="point-icon">{p.icon}</div>
-                <h3>{p.title}</h3>
-              </div>
-              <p>{p.text}</p>
-            </div>
-          ))}
-        </div>
+      <div className="seat-header reveal" ref={addToRefs}>
+        <div className="editorial-label">03 // THE VALUE</div>
+        <h2>Why This <i>Seat Matters</i></h2>
+        <p className="seat-intro">Your buyers are forming opinions about you right now. You are not in the room.</p>
       </div>
+
+      <div className="seat-grid">
+        {points.map((p, i) => (
+          <div 
+            key={i} 
+            className="seat-cell reveal" 
+            ref={addToRefs}
+            style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
+          >
+            <div className="cell-visual">
+              <video 
+                key={p.video}
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                className="cell-vid"
+                src={p.video}
+              />
+              <div className="cell-overlay"></div>
+            </div>
+            
+            <div className="cell-content">
+              <h3 className="cell-title">{p.title}</h3>
+              <p className="cell-text">{p.text}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

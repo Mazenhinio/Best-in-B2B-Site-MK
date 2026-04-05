@@ -2,56 +2,81 @@
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 5rem;
+  padding: 1.5rem 5.5rem;
   background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 75%, transparent 100%);
   transition: all 0.5s ease;
   backdrop-filter: blur(8px);
 }
 
 .nlogo {
-  height: 55px;
+  height: 60px;
   display: flex;
   align-items: center;
 }
 
-.nav-logo-shield {
+.nav-logo-wordmark {
   height: 100%;
   width: auto;
-  filter: brightness(1.1) drop-shadow(0 0 15px rgba(255,255,255,0.1));
+  filter: brightness(1.2);
 }
 
-.ncenter {
-  display: flex; align-items: center; gap: 1.2rem;
+.nmenu {
+  display: flex;
+  gap: 3.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nlink {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  color: var(--cream);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.nlink:hover {
+  opacity: 1;
+  color: var(--lime);
+}
+
+.nright {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.nstatus {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
   font-family: 'DM Mono', monospace;
-  font-size: 1.1rem; 
-  letter-spacing: .25em; 
-  text-transform: uppercase; 
-  color: #fff;
-  opacity: 0.9;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.7);
 }
 
 .npulse {
   width: 10px; height: 10px; border-radius: 50%; background: var(--lime);
-  box-shadow: 0 0 15px var(--lime);
+  box-shadow: 0 0 12px var(--lime);
   animation: pulse 2s ease-in-out infinite;
-}
-
-.nright {
-  display: flex; align-items: center;
 }
 
 .ncta {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 1.3rem; 
+  font-size: 1.4rem; 
   letter-spacing: .08em; 
   text-transform: uppercase;
   color: var(--lime); 
   text-decoration: none;
-  padding: 0.8rem 2.2rem;
+  padding: 0.9rem 2rem;
   border: 1px solid var(--lime);
-  border-radius: 100px;
-  background: rgba(200, 255, 0, 0.05);
-  transition: all 0.4s var(--ease);
+  border-radius: 2px;
+  background: rgba(212, 255, 0, 0.05);
+  transition: all 0.4s ease;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -60,15 +85,20 @@ nav {
 .ncta:hover { 
   background: var(--lime);
   color: #000;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(200, 255, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 255, 0, 0.2);
 }
 
-@media(max-width:1100px) {
-  nav { padding: 2rem; }
-  .ncenter { display: none; }
-  .nlogo { font-size: 1.5rem; }
-  .ncta { padding: 0.6rem 1.5rem; font-size: 1rem; }
+@media(max-width:1300px) {
+  nav { padding: 1rem 2rem; }
+  .nmenu { gap: 1.5rem; }
+  .nright { gap: 1.5rem; }
+  .nstatus { display: none; }
+}
+
+@media(max-width:900px) {
+  .nmenu { display: none; }
+  .nlogo { height: 35px; }
 }
 
 @keyframes pulse {

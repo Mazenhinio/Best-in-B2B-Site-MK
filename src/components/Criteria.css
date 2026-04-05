@@ -1,10 +1,9 @@
 .s-criteria {
   background: var(--cream);
   color: var(--blk);
-  padding: 2rem 2rem 10rem 2rem;
+  padding: 12rem 0;
   overflow: hidden;
   position: relative;
-  border-bottom: 1px solid var(--c05);
 }
 
 .criteria-container {
@@ -14,215 +13,205 @@
 
 .criteria-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
 }
 
-.criteria-header .editorial-label {
-  color: var(--c40);
-  margin-bottom: 1.5rem;
+.criteria-header .editorial-label.black-bg {
+  background: var(--blk);
+  color: var(--lime);
+  border-color: var(--blk);
 }
 
 .criteria-header h2 {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(4rem, 10vw, 8.5rem);
-  line-height: .9;
-  letter-spacing: -0.025em;
+  font-family: "Publico Headline", Georgia, serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  line-height: .95;
+  letter-spacing: -0.03em;
   color: var(--blk);
+  text-transform: none;
+  margin-bottom: 2rem;
+}
+
+.criteria-intro {
+  font-family: 'Publico Headline', Georgia, serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  color: rgba(0,0,0,0.6);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.4;
 }
 
 .criteria-stage {
   position: relative;
-  min-height: 800px;
-  margin: 0 auto;
-}
-
-/* NEW ASYMMETRIC LAYOUT */
-.crit-split-layout {
+  height: 1200px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6rem;
-  height: 800px;
-  position: relative;
+  justify-content: center;
 }
 
-.crit-narrative-rail {
-  flex: 0 0 420px;
+.forbes-carousel {
   position: relative;
-  height: 100%;
+  width: 750px;
+  height: 1000px;
+  perspective: 3000px;
 }
 
-.crit-narrative-box {
+.forbes-card {
   position: absolute;
-  top: 45%;
-  left: 0;
-  transform: translateY(-50%) translateX(-40px);
+  inset: 0;
   opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
   transition: all 1.2s cubic-bezier(.16,1,.3,1);
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  transform: scale(0.9) translateZ(-150px);
+  z-index: 1;
 }
 
-.crit-narrative-box.active {
+.forbes-card.active {
   opacity: 1;
-  pointer-events: all;
-  transform: translateY(-50%) translateX(0);
+  visibility: visible;
+  transform: scale(1) translateZ(0);
+  z-index: 5;
 }
 
-.crit-index {
+.card-logo-wrap {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.card-brand-logo {
+  height: 80px;
+  width: auto;
+  filter: brightness(100);
+}
+
+.card-visual {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-profile-img {
+  height: 95%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+  transition: transform 10s linear;
+}
+
+.forbes-card.active .card-profile-img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  position: relative;
+  z-index: 10;
+  margin-top: auto;
+  margin-bottom: 4rem;
+}
+
+.card-sub {
   display: block;
   font-family: 'DM Mono', monospace;
-  font-size: 0.85rem;
-  color: var(--c40);
+  font-size: 1.2rem;
+  color: var(--lime);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
   margin-bottom: 1.5rem;
-  letter-spacing: 0.2em;
 }
 
-.crit-title {
+.card-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(4rem, 7vw, 7.5rem);
-  line-height: .85;
-  color: var(--blk);
+  font-size: 7.5rem;
+  line-height: 0.82;
+  color: #fff;
   text-transform: uppercase;
   margin-bottom: 2rem;
   letter-spacing: -0.01em;
 }
 
-.crit-text {
+.card-desc {
   font-family: 'Publico Headline', serif;
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
-  line-height: 1.5;
-  color: var(--c60);
-  font-style: italic;
-  max-width: 400px;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.7);
+  max-width: 90%;
 }
 
-/* VISUAL STAGE (RIGHT) */
-.crit-visual-stage {
-  flex: 1;
-  position: relative;
-  height: 100%;
+.card-issue-meta {
+  position: absolute;
+  top: 50%;
+  right: -2rem;
+  transform: rotate(90deg) translateY(-50%);
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  gap: 2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3);
+  width: max-content;
 }
 
-.crit-img-profile {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 110%;
-  width: auto;
-  transform: translateX(60px);
-  opacity: 0;
-  filter: grayscale(100%);
-  transition: all 1.8s cubic-bezier(.16,1,.3,1);
-  object-fit: contain;
-  z-index: 2;
-}
-
-.crit-img-profile.active {
-  opacity: 1;
-  transform: translateX(0);
-  filter: grayscale(0%);
-}
-
-.crit-floor-shadow {
-  position: absolute;
-  bottom: -20px;
-  right: 5%;
-  width: 70%;
-  height: 40px;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, transparent 70%);
-  z-index: 1;
-}
-
-/* NAVIGATION */
-.criteria-nav {
-  position: absolute;
-  bottom: 0rem;
-  left: 0;
+.forbes-nav {
+  margin-top: 5rem;
   display: flex;
-  gap: 3rem;
-  z-index: 10;
+  gap: 2rem;
 }
 
-.crit-dot {
+.forbes-dot {
   background: none;
   border: none;
-  color: var(--c40);
+  padding: 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  items: flex-start;
-  transition: all 0.6s var(--ease);
-  padding: 0;
+  align-items: flex-start;
+  opacity: 0.3;
+  transition: all 0.4s ease;
 }
 
-.dot-line {
-  width: 50px;
-  height: 1px;
-  background: var(--c10);
-  margin-bottom: 0.8rem;
-  transition: all 0.6s var(--ease);
+.forbes-dot.active {
+  opacity: 1;
 }
 
-.crit-dot.active .dot-line {
+.forbes-dot .dot-line {
+  width: 40px;
+  height: 2px;
   background: var(--blk);
-  width: 80px;
+  margin-bottom: 0.5rem;
+  opacity: 0.2;
+  transition: all 0.4s ease;
 }
 
-.crit-dot.active .dot-num {
-  color: var(--blk);
-  font-weight: 600;
+.forbes-dot.active .dot-line {
+  opacity: 1;
+  background: var(--lime);
 }
 
-.dot-num {
+.forbes-dot .dot-label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  color: var(--blk);
 }
 
-@media (max-width: 1100px) {
-  .crit-split-layout {
-    flex-direction: column;
-    height: auto;
-    gap: 4rem;
-  }
-  .crit-narrative-rail {
-    flex: none;
-    width: 100%;
-    order: 2;
-    min-height: 400px;
-  }
-  .crit-narrative-box {
-    position: relative;
-    top: auto; left: auto;
-    transform: translateY(20px);
-    text-align: center;
-  }
-  .crit-narrative-box.active {
-    transform: translateY(0);
-  }
-  .crit-text {
-    max-width: 100%;
-  }
-  .crit-visual-stage {
-    height: 500px;
-    order: 1;
-    justify-content: center;
-  }
-  .crit-img-profile {
-    right: 50%;
-    transform: translateX(50%) translateY(40px);
-    height: 100%;
-  }
-  .crit-img-profile.active {
-    transform: translateX(50%) translateY(0);
-  }
-  .criteria-nav {
-    position: relative;
-    bottom: auto;
-    justify-content: center;
-    margin-top: 4rem;
-  }
+/* SHARP EDGES ONLY - GLOBAL RULE OVERRIDE */
+* {
+  border-radius: 0 !important;
+}
+
+@media (max-width: 700px) {
+  .forbes-carousel { width: 90vw; height: 550px; }
+  .card-title { font-size: 3.5rem; }
+  .card-profile-img { height: 80%; }
 }

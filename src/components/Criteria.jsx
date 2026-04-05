@@ -27,10 +27,34 @@ const Criteria = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
   
   const criteriaList = [
-    { title: "Senior Leadership", text: "Founders, CEOs, and C-Suite Executives at established organizations or high-growth ventures.", img: "/Female Executive 2.png" },
-    { title: "DFW Based", text: "You must be operating your primary business from the Dallas–Fort Worth metroplex.", img: "/cool-african-mature-businessman-walking-along-the-2026-01-06-10-10-07-utc-removebg-preview.png" },
-    { title: "B2B Focused", text: "The core of your value proposition must be business-to-business commerce or services.", img: "/Female Excutive white Power Pose.png" },
-    { title: "Point of View", text: "We look for unique perspectives that challenge the consensus of standard business practices.", img: "/Top down shot of Kurd Executive.png" }
+    { 
+      title: "Senior Leadership", 
+      subtitle: "Founders & C-Suite",
+      text: "Founders, CEOs, and C-Suite Executives at established organizations or high-growth ventures.", 
+      img: "/Female Executive 2.png",
+      color: "linear-gradient(135deg, #0a1128 0%, #000 100%)" // Navy
+    },
+    { 
+      title: "DFW Based", 
+      subtitle: "North Texas Native",
+      text: "You must be operating your primary business from the Dallas–Fort Worth metroplex.", 
+      img: "/cool-african-mature-businessman-walking-along-the-2026-01-06-10-10-07-utc-removebg-preview.png",
+      color: "linear-gradient(135deg, #1a1a1a 0%, #000 100%)" // Charcoal
+    },
+    { 
+      title: "B2B Focused", 
+      subtitle: "Enterprise Core",
+      text: "The core of your value proposition must be business-to-business commerce or services.", 
+      img: "/Female Excutive white Power Pose.png",
+      color: "linear-gradient(135deg, #2c1810 0%, #000 100%)" // Brown
+    },
+    { 
+      title: "Perspective", 
+      subtitle: "Something Worth Saying",
+      text: "We look for unique perspectives that challenge the consensus of standard business practices.", 
+      img: "/Top down shot of Kurd Executive.png",
+      color: "linear-gradient(135deg, #141e14 0%, #000 100%)" // Deep Green/Charcoal
+    }
   ];
 
   useEffect(() => {
@@ -44,84 +68,51 @@ const Criteria = () => {
     <section className="s-criteria" id="criteria">
       <div className="criteria-container">
         <div className="criteria-header reveal" ref={addToRefs}>
-          <div className="editorial-label">07 // THE STANDARD</div>
+          <div className="editorial-label black-bg">07 // THE STANDARD</div>
           <h2>Who is <i>Invited</i></h2>
+          <p className="criteria-intro">We are looking for the architects of the DFW B2B landscape. Those who lead with substance over noise.</p>
         </div>
 
         <div className="criteria-stage">
-          {/* NEW ASYMMETRIC LAYOUT */}
-          <div className="crit-split-layout">
-            <div className="crit-narrative-rail">
-              {criteriaList.map((c, i) => (
-                <div key={i} className={`crit-narrative-box ${i === activeIndex ? 'active' : ''}`}>
-                  <span className="crit-index">0{i+1}</span>
-                  <h3 className="crit-title">{c.title}</h3>
-                  <p className="crit-text">{c.text}</p>
+          <div className="forbes-carousel">
+            {criteriaList.map((c, i) => (
+              <div 
+                key={i} 
+                className={`forbes-card ${i === activeIndex ? 'active' : ''}`}
+                style={{ background: c.color }}
+              >
+                <div className="card-logo-wrap">
+                   <img src="/Logo.png" alt="Best in B2B" className="card-brand-logo" />
                 </div>
-              ))}
-            </div>
+                
+                <div className="card-visual">
+                  <img src={c.img} alt={c.title} className="card-profile-img" />
+                </div>
 
-            <div className="crit-visual-stage">
-              {criteriaList.map((c, i) => (
-                <img 
-                  key={i} 
-                  src={c.img} 
-                  alt={c.title} 
-                  className={`crit-img-profile ${i === activeIndex ? 'active' : ''}`} 
-                />
-              ))}
-              <div className="crit-floor-shadow"></div>
-            </div>
+                <div className="card-content">
+                  <span className="card-sub">{c.subtitle}</span>
+                  <h3 className="card-title">{c.title}</h3>
+                  <p className="card-desc">{c.text}</p>
+                </div>
+
+                <div className="card-issue-meta">
+                   <span>SEASON ONE</span>
+                   <span>DFW EDITION</span>
+                   <span>2026 ISSUE</span>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* PREVIOUS CENTER-STAGE LAYOUT (COMMENTED)
-          <div className="criteria-content-grid">
-            <div className="crit-left">
-              <div className="crit-anim-wrapper">
-                {criteriaList.map((c, i) => (
-                  <div key={i} className={`crit-val-box ${i === activeIndex ? 'active' : ''}`}>
-                    <span className="crit-index">0{i+1}</span>
-                    <h3 className="crit-title">{c.title}</h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="crit-center">
-              <div className="crit-image-rail">
-                {criteriaList.map((c, i) => (
-                  <img 
-                    key={i} 
-                    src={c.img} 
-                    alt={c.title} 
-                    className={`crit-img-profile ${i === activeIndex ? 'active' : ''}`} 
-                  />
-                ))}
-              </div>
-              <div className="crit-floor-glow"></div>
-            </div>
-
-            <div className="crit-right">
-              <div className="crit-anim-wrapper">
-                {criteriaList.map((c, i) => (
-                  <div key={i} className={`crit-desc-box ${i === activeIndex ? 'active' : ''}`}>
-                    <p className="crit-text">{c.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          */}
-          
-          <div className="criteria-nav">
+          <div className="forbes-nav">
              {criteriaList.map((_, i) => (
                <button 
                 key={i} 
                 onClick={() => setActiveIndex(i)} 
-                className={`crit-dot ${i === activeIndex ? 'active' : ''}`}
+                className={`forbes-dot ${i === activeIndex ? 'active' : ''}`}
                >
                  <span className="dot-line"></span>
-                 <span className="dot-num">0{i+1}</span>
+                 <span className="dot-label">0{i+1}</span>
                </button>
              ))}
           </div>
