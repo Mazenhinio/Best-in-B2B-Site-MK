@@ -84,11 +84,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: -1.5rem;
   margin-bottom: 4rem;
 }
 
 .card-brand-logo {
-  height: 80px;
+  height: 95px;
   width: auto;
   filter: brightness(100);
 }
@@ -111,7 +112,7 @@
 }
 
 .forbes-card.active .card-profile-img {
-  transform: scale(1.1);
+  transform: scale(1.1) translateY(var(--img-shift, 0));
 }
 
 .card-content {

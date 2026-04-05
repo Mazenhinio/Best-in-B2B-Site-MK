@@ -31,29 +31,30 @@ const Criteria = () => {
       title: "Senior Leadership", 
       subtitle: "Founders & C-Suite",
       text: "Founders, CEOs, and C-Suite Executives at established organizations or high-growth ventures.", 
-      img: "/Female Executive 2.png",
-      color: "linear-gradient(135deg, #0a1128 0%, #000 100%)" // Navy
+      img: "/criteria_1.png",
+      color: "#1B2A4A" // Navy
     },
     { 
       title: "DFW Based", 
       subtitle: "North Texas Native",
       text: "You must be operating your primary business from the Dallas–Fort Worth metroplex.", 
-      img: "/cool-african-mature-businessman-walking-along-the-2026-01-06-10-10-07-utc-removebg-preview.png",
-      color: "linear-gradient(135deg, #1a1a1a 0%, #000 100%)" // Charcoal
+      img: "/criteria_2.png",
+      color: "#2C1A0E" // Dark Brown
     },
     { 
       title: "B2B Focused", 
       subtitle: "Enterprise Core",
       text: "The core of your value proposition must be business-to-business commerce or services.", 
-      img: "/Female Excutive white Power Pose.png",
-      color: "linear-gradient(135deg, #2c1810 0%, #000 100%)" // Brown
+      img: "/criteria_3.png",
+      color: "#1C1C1C", // Charcoal Grey
+      imgShift: "translateY(15px)"
     },
     { 
       title: "Perspective", 
       subtitle: "Something Worth Saying",
       text: "We look for unique perspectives that challenge the consensus of standard business practices.", 
-      img: "/Top down shot of Kurd Executive.png",
-      color: "linear-gradient(135deg, #141e14 0%, #000 100%)" // Deep Green/Charcoal
+      img: "/criteria_4.png",
+      color: "#4A0E1B" // Wine Red
     }
   ];
 
@@ -79,14 +80,22 @@ const Criteria = () => {
               <div 
                 key={i} 
                 className={`forbes-card ${i === activeIndex ? 'active' : ''}`}
-                style={{ background: c.color }}
+                style={{ 
+                  background: c.color,
+                  '--img-shift': c.imgShift || '0px'
+                }}
               >
                 <div className="card-logo-wrap">
                    <img src="/Logo.png" alt="Best in B2B" className="card-brand-logo" />
                 </div>
                 
                 <div className="card-visual">
-                  <img src={c.img} alt={c.title} className="card-profile-img" />
+                  <img 
+                    key={c.img} 
+                    src={c.img} 
+                    alt={c.title} 
+                    className="card-profile-img" 
+                  />
                 </div>
 
                 <div className="card-content">

@@ -1,108 +1,510 @@
 .s-deliverables {
   background: var(--blk);
   color: var(--cream);
-  padding: 8rem 3.2rem 2rem 3.2rem;
-  border-top: 1px solid var(--c05);
+  padding: 0;
+  position: relative;
 }
 
-.del-container {
-  max-width: 1200px;
+.del-sticky-grid {
+  display: flex;
+  max-width: 1600px;
   margin: 0 auto;
+  position: relative;
 }
 
-.del-header {
-  margin-bottom: 6rem;
-  max-width: 800px;
+/* LEFT RAIL */
+.del-left-rail {
+  width: 45%;
+  padding-left: 4rem;
+  padding-right: 6rem;
 }
 
-.del-header h2 {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: .9;
-  letter-spacing: -0.02em;
+.del-intro-header {
+  padding-top: 15vh;
+  margin-bottom: 25vh;
+}
+
+.del-intro-header h2 {
+  font-family: "Publico Headline", serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-top: 2rem;
   margin-bottom: 2rem;
-  color: var(--cream);
 }
 
-.del-intro {
+.del-intro-header p {
   font-family: 'Publico Headline', serif;
-  font-size: 1.25rem;
-  color: var(--c80);
+  font-size: 1.2rem;
+  color: var(--c60);
+  line-height: 1.5;
+  max-width: 500px;
 }
 
-.del-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 6rem;
-}
-
-.del-item {
-  background: #fff;
-  padding: 2.5rem;
+.del-content-block {
+  min-height: 60vh;
+  margin-bottom: 40vh;
+  opacity: 0.2;
+  transition: opacity 0.8s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid var(--c05);
-  transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+  justify-content: center;
 }
 
-.del-item:hover {
-  transform: translateY(-8px);
+.del-content-block.active {
+  opacity: 1;
 }
 
-.del-title {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 0.05em;
-  color: var(--blk);
+.del-step-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 1rem;
+  color: var(--lime);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.del-step-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.del-step-subtitle {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--c40);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 2rem;
+}
+
+.del-step-desc {
+  font-family: 'Publico Headline', serif;
+  font-size: 1.4rem;
+  line-height: 1.45;
+  color: var(--c80);
+  max-width: 500px;
+  margin-bottom: 3rem;
+}
+
+.del-tag-cloud {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.del-tag {
+  border: 1px solid var(--c20);
+  padding: 0.6rem 1.2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--c60);
+}
+
+.del-spacer-bottom {
+  height: 80vh;
+}
+
+/* RIGHT STICKY STAGE */
+.del-right-stage {
+  width: 55%;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 4rem;
+}
+
+.del-sticky-container {
+  width: 100%;
+  max-width: 700px;
+  height: 650px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.del-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(.16,1,.3,1);
+  visibility: hidden;
+}
+
+.del-panel.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* YOUTUBE MOCKUP - PREVIOUSLY DEFINED */
+.yt-mockup {
+  width: 100%;
+  background: #111;
+  padding: 1rem;
+  border: 1px solid #333;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+
+.yt-player-frame {
+  aspect-ratio: 16/9;
+  background: #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.yt-thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.yt-play-btn {
+  position: relative;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(25% 20%, 85% 50%, 25% 80%);
+}
+
+.yt-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  z-index: 2;
+}
+
+.yt-meta {
+  padding-top: 1rem;
+}
+
+.yt-title-bar {
+  height: 12px;
+  width: 70%;
+  background: #333;
   margin-bottom: 0.5rem;
 }
 
-.del-label {
-  font-family: "DM Mono", monospace;
-  font-size: 0.75rem;
-  color: var(--c50);
-  text-transform: uppercase;
+.yt-subtitle-bar {
+  height: 8px;
+  width: 40%;
+  background: #222;
 }
 
-.del-line {
-  height: 2px;
+.platform-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.plat-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--c20);
+  opacity: 0.5;
+}
+
+.plat-icon.yt { border-radius: 0; }
+
+.panel-label {
+  position: absolute;
+  bottom: 2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2rem;
+  color: var(--c20);
+}
+
+/* REEL FRAME (SHORTS) */
+.reel-frame {
+  width: 280px;
+  height: 480px;
+  background: #000;
+  position: relative;
+  border: 4px solid #111;
+  overflow: hidden;
+}
+
+.reel-frame video {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.reel-captions {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  right: 10%;
   background: var(--lime);
-  margin-top: 2rem;
-}
-
-.del-value-box {
-  background: var(--blk);
-  padding: 2rem 4rem;
-  text-align: center;
-  border-radius: 4px;
-}
-
-.value-quote {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--blk);
+  padding: 0.8rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
   line-height: 1;
+  text-align: center;
+}
+
+/* GUEST CARDS STACK */
+.guest-cards-stack {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.guest-card {
+  width: 220px;
+  height: 330px;
+  background: var(--blk);
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.guest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, var(--blk), transparent);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
   color: var(--lime);
+  line-height: 0.9;
+}
+
+/* QUOTE GRAPHIC */
+.quote-graphic-mock {
+  width: 100%;
+  height: 400px;
+  background: #000;
+  position: relative;
+  border: 1px solid #333;
+}
+
+.quote-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.quote-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+.quote-text-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-mark {
+  font-family: serif;
+  font-size: 6rem;
+  color: var(--lime);
+  line-height: 0;
   margin-bottom: 2rem;
 }
 
-.value-cite {
-  display: block;
-  font-family: "DM Mono", monospace;
-  font-size: 0.85rem;
-  color: var(--c50);
+.quote-text-overlay p {
+  font-family: 'Publico Headline', serif;
+  font-size: 1.8rem;
+  line-height: 1.3;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.quote-text-overlay cite {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--c40);
   text-transform: uppercase;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
 }
 
-@media(max-width: 1024px) {
-  .del-grid { grid-template-columns: repeat(2, 1fr); }
+/* CAPTION MOCK */
+.caption-mock {
+  width: 100%;
+  max-width: 600px;
+  background: #111;
+  padding: 3rem;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
-@media(max-width: 640px) {
-  .del-grid { grid-template-columns: 1fr; }
-  .del-value-box { padding: 4rem 2rem; }
-  .s-deliverables { padding: 6rem 1.6rem; }
+.calendar-ui {
+  border-left: 2px solid var(--lime);
+  padding-left: 2.5rem;
+}
+
+.cal-day {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--lime);
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.cal-post {
+  display: flex;
+  gap: 2rem;
+}
+
+.cal-thumb {
+  width: 140px;
+  height: 180px;
+  background: #222;
+  flex-shrink: 0;
+}
+
+.cal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.cal-copy {
+  flex: 1;
+}
+
+.cal-text {
+  font-family: 'Publico Headline', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+}
+
+.cal-tags {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--c40);
+  line-height: 1.5;
+}
+
+/* FEATURE PROFILE CARD (D CEO STYLE) */
+.feature-profile-card {
+  width: 400px;
+  height: 560px;
+  background: #05040A; /* Deep dark */
+  border: 1px solid var(--c10);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.profile-header img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  background: #111;
+}
+
+.profile-title h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.profile-title span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--c40);
+  letter-spacing: 0.1em;
+}
+
+.profile-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-pull-quote {
+  font-family: 'Publico Headline', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--cream);
+  border-left: 4px solid var(--lime);
+  padding-left: 2rem;
+}
+
+.profile-issue-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--c20);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 2rem;
+}
+
+/* VALUE FOOTER */
+.del-value-footer {
+  padding: 10rem 4rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+  background: var(--blk);
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .del-sticky-grid { flex-direction: column; }
+  .del-left-rail, .del-right-stage { width: 100%; padding: 2rem; }
+  .del-right-stage { height: 60vh; position: relative; }
+  .del-intro-header { padding-top: 5vh; margin-bottom: 10vh; }
+  .feature-profile-card { width: 100%; height: auto; }
 }
