@@ -1,5 +1,6 @@
 import React from 'react';
 import './FooterCTA.css';
+import Logo from '../assets/Logo.png';
 
 const FooterCTA = () => {
   return (
@@ -10,14 +11,14 @@ const FooterCTA = () => {
       
       <div className="footer-legal">
         <div className="footer-brand">
-          <img src="/Logo.png" alt="Best in B2B Logo" className="f-logo" />
+          <img src={Logo} alt="Best in B2B Logo" className="f-logo" />
         </div>
         <div className="footer-copy">© 2026 Best in B2B Leadership Series. Curated by DFW.</div>
         <div className="footer-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
-          <a href="#">Executive Contact</a>
-          <a href="#">Media Kit</a>
+          <a href="#request">Executive Contact</a>
+          <a href="#deliverables">Media Kit</a>
         </div>
       </div>
     </footer>

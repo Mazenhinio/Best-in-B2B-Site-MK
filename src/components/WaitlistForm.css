@@ -21,26 +21,42 @@
   z-index: 2;
 }
 
-.wl-header-box {
-  position: sticky;
-  top: 15rem;
-  height: fit-content;
-}
-
-.wl-header-box .editorial-label {
-  color: var(--blk);
-  border-color: rgba(0,0,0,0.2);
+.wl-title-wrap {
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .wl-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3.5rem, 7vw, 6.5rem);
-  line-height: 0.85;
-  letter-spacing: -0.02em;
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 0.8;
+  letter-spacing: -0.01em;
   color: var(--blk);
   text-transform: uppercase;
+  margin: 0;
+  position: relative;
+}
+
+.wl-title-top {
+  z-index: 3;
+  color: #fff;
+  text-shadow: 4px 4px 0px var(--blk);
+  line-height: 0.8 !important;
+}
+
+.wl-camera-layer {
+  position: absolute;
+  z-index: 2;
+  left: -100px;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 650px;
+  opacity: 1;
+  pointer-events: none;
+  filter: drop-shadow(40px 40px 80px rgba(0,0,0,0.25));
 }
 
 .wl-sub {
@@ -49,6 +65,7 @@
   line-height: 1.4;
   color: rgba(0,0,0,0.7);
   max-width: 450px;
+  margin-top: 8rem; /* Pushed significantly down */
 }
 
 .wl-form-stage {
@@ -170,7 +187,8 @@
 
 @media (max-width: 1100px) {
   .wl-container { grid-template-columns: 1fr; gap: 5rem; }
-  .wl-header-box { position: relative; top: 0; }
+  .wl-header-box { position: relative; top: 0; z-index: 5; }
+  .wl-camera-layer { width: 400px; left: -10%; top: 20%; }
   .s-waitlist { padding: 8rem 2rem; }
 }
 

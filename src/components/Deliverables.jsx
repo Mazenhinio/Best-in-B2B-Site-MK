@@ -192,7 +192,7 @@ const Deliverables = () => {
               ref={el => sectionRefs.current[i] = el}
               data-index={i}
             >
-              <span className="del-step-num">0{i+1}</span>
+
               <h3 className="del-step-title">{item.title}</h3>
               <div className="del-step-subtitle">{item.subtitle}</div>
               <p className="del-step-desc">{item.desc}</p>

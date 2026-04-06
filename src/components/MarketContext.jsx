@@ -3,7 +3,7 @@ import './MarketContext.css';
 
 const MarketContext = () => {
   return (
-    <section className="s-market" id="market">
+    <section className="s-market" id="market-context">
       <div className="market-container">
         <div className="editorial-label">04 // WHY NOW</div>
         <h2>Dallas–Fort Worth is having its moment. <i>Its leaders should be heard.</i></h2>

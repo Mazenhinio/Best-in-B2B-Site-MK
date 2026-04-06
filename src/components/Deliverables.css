@@ -55,6 +55,10 @@
   opacity: 1;
 }
 
+.del-content-block:last-of-type {
+  margin-bottom: 5vh;
+}
+
 .del-step-num {
   font-family: 'DM Mono', monospace;
   font-size: 1rem;
@@ -105,7 +109,7 @@
 }
 
 .del-spacer-bottom {
-  height: 80vh;
+  height: 0vh;
 }
 
 /* RIGHT STICKY STAGE */
@@ -122,8 +126,8 @@
 
 .del-sticky-container {
   width: 100%;
-  max-width: 850px;
-  height: 750px;
+  max-width: 1000px;
+  height: 800px;
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.05);
   position: relative;
@@ -144,7 +148,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5rem;
+  padding: 3rem;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s cubic-bezier(.16,1,.3,1);
@@ -163,7 +167,8 @@
   background: #111;
   padding: 1rem;
   border: 1px solid #333;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  box-shadow: 0 60px 120px rgba(0,0,0,0.6);
+  transform: scale(1.05);
 }
 
 .yt-player-frame {
@@ -188,8 +193,8 @@
 .yt-play-btn {
   position: relative;
   z-index: 2;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(4px);
   display: flex;
@@ -213,14 +218,14 @@
 }
 
 .yt-title-bar {
-  height: 12px;
+  height: 16px;
   width: 70%;
   background: #333;
   margin-bottom: 0.5rem;
 }
 
 .yt-subtitle-bar {
-  height: 8px;
+  height: 10px;
   width: 40%;
   background: #222;
 }
@@ -275,8 +280,8 @@
   color: var(--blk);
   padding: 0.8rem;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1;
+  font-size: 1.6rem;
+  line-height: 1.1;
   text-align: center;
 }
 
@@ -312,7 +317,7 @@
   padding: 1.5rem;
   background: linear-gradient(to top, var(--blk), transparent);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--lime);
   line-height: 0.9;
 }
@@ -358,7 +363,7 @@
 
 .quote-text-overlay p {
   font-family: 'Publico Headline', serif;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   line-height: 1.3;
   color: #fff;
   margin-bottom: 2rem;
@@ -480,7 +485,7 @@
 
 .profile-pull-quote {
   font-family: 'Publico Headline', serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-style: italic;
   line-height: 1.3;
   color: var(--cream);
@@ -519,7 +524,7 @@
   font-family: 'DM Mono', monospace;
   letter-spacing: 0.15em;
   color: var(--lime);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
 }
 

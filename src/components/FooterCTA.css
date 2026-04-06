@@ -7,13 +7,14 @@
 }
 
 .footer-cta-container {
-  max-width: 900px;
+  max-width: 1300px;
   margin: 0 auto 10rem;
+  white-space: nowrap;
 }
 
 .footer-cta-container h2 {
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   line-height: .9;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
@@ -122,6 +123,7 @@
 
 @media(max-width: 900px) {
   .s-footer { padding: 6rem 1.6rem 3rem; }
+  .footer-cta-container { white-space: normal; }
   .footer-legal { flex-direction: column; align-items: center; text-align: center; gap: 3rem; }
   .footer-links { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
 }

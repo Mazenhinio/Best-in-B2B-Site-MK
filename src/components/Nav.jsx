@@ -1,14 +1,18 @@
 import React from 'react';
 import './Nav.css';
+import Logo from '../assets/Logo.png';
 
 const Nav = () => {
   return (
     <nav>
       <div className="nlogo">
-        <img src="/Logo.png" alt="Best in B2B" className="nav-logo-wordmark" />
+        <a href="#hero">
+          <img src={Logo} alt="Best in B2B" className="nav-logo-wordmark" />
+        </a>
       </div>
       
       <div className="nmenu">
+        <a href="#hero" className="nlink">HOME</a>
         <a href="#about-series" className="nlink">ABOUT</a>
         <a href="#the-series" className="nlink">SERIES</a>
         <a href="#market-context" className="nlink">WHY NOW</a>

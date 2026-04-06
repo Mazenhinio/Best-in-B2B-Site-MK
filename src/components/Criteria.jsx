@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './Criteria.css';
+import Logo from '../assets/Logo.png';
 
 const Criteria = () => {
   const elementsRef = useRef([]);
@@ -86,7 +87,7 @@ const Criteria = () => {
                 }}
               >
                 <div className="card-logo-wrap">
-                   <img src="/Logo.png" alt="Best in B2B" className="card-brand-logo" />
+                   <img src={Logo} alt="Best in B2B" className="card-brand-logo" />
                 </div>
                 
                 <div className="card-visual">

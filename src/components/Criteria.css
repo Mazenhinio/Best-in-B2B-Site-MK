@@ -13,13 +13,13 @@
 
 .criteria-header {
   text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 3rem;
 }
 
 .criteria-header .editorial-label.black-bg {
-  background: var(--blk);
-  color: var(--lime);
-  border-color: var(--blk);
+  background: transparent;
+  color: var(--blk);
+  border: none;
 }
 
 .criteria-header h2 {
@@ -91,7 +91,7 @@
 .card-brand-logo {
   height: 95px;
   width: auto;
-  filter: brightness(100);
+  filter: brightness(0) invert(1);
 }
 
 .card-visual {

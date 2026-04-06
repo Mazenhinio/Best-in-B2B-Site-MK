@@ -25,7 +25,10 @@ const WaitlistForm = () => {
       <div className="wl-container">
         <div className="wl-header-box">
           <div className="editorial-label">08 // APPLICATION</div>
-          <h2 className="wl-title">The record is being written.</h2>
+          <div className="wl-title-wrap">
+             <img src="/camera.png" alt="" className="wl-camera-layer" />
+             <h2 className="wl-title wl-title-top">The record is<br/>being written.</h2>
+          </div>
           <p className="wl-sub">Submit your details to be considered for Season One.</p>
         </div>
 

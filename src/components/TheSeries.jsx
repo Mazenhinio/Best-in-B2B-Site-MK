@@ -29,7 +29,7 @@ const TheSeries = () => {
   };
 
   return (
-    <section ref={sectionRef} className="s-series">
+    <section id="the-series" ref={sectionRef} className="s-series">
       {/* Editorial Background visual restored to image */}
       <div className="series-bg">
         <img src="/series-bg.png" alt="DFW Office" />
