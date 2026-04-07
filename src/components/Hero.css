@@ -26,17 +26,17 @@
 /* LINE 1: THE EXECUTIVES DEFINING */
 .w-the { 
   font-size: clamp(3rem, 6vw, 8rem); 
-  left: 6%; top: 12%; 
+  left: 6%; top: 16%; 
   color: var(--c40); 
 }
 .w-exec { 
   font-size: clamp(4.5rem, 10vw, 14rem); 
-  left: 14%; top: 18%; 
+  left: 14%; top: 22%; 
   transform: rotate(-2deg); 
 }
 .w-def { 
   font-size: clamp(3.5rem, 8vw, 11rem); 
-  left: 55%; top: 10%; 
+  left: 55%; top: 15%; 
   color: var(--c60); 
 }
 
